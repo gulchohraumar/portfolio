@@ -1,0 +1,96 @@
+.main-creative {
+    background: #445045;
+    height: 100vh;
+    overflow-y: auto;
+    overflow-x: hidden;
+    padding: 20px 45px;
+    font-family: 'Lobster Two', cursive !important;
+    color: #F1F3F1;
+ }
+
+ .header-creative span,
+ .header-creative-footer span {
+    font-size: 28px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: normal;
+    width: 50%;
+    letter-spacing: 4px;
+ }
+
+ .img-header {
+    font-size: 40px;
+    letter-spacing: 5px;
+ }
+
+ .img-footer {
+    font-size: 23px;
+    letter-spacing: 6px;
+ }
+
+ img {
+    max-height: 480px;
+    max-width: 440px;
+    width: 100%;
+
+    mix-blend-mode: overlay;
+ }
+
+ .cr-text {
+    font-size: 8rem;
+    letter-spacing: 6px;
+ }
+
+ .cr-text1 {
+    position: absolute;
+    top: 20%;
+    left: 10%;
+ }
+
+ .cr-text2 {
+    position: absolute;
+    top: 59%;
+    left: 49%;
+ }
+
+
+ @media only screen and (max-width: 1022px) {
+   .cr-text1 {
+      left: 3%;
+  }
+
+ }
+
+ @media only screen and (max-width: 992px) {
+
+    .cr-text1,
+    .cr-text2 {
+       position: relative;
+       top: 0%;
+       left: 0%;
+    }
+
+    .cr-text {
+       font-size: 7rem;
+       text-align: center;
+    }
+
+    .header-creative {
+       margin: 0 0 30px 0 !important;
+    }
+
+    .header-creative-footer {
+       margin: 30px 0 0 0 !important;
+    }
+
+ }
+
+ @media only screen and (max-width: 476px) {
+
+    .header-creative span,
+    .header-creative-footer span {
+       font-size: 17px;
+       letter-spacing: 2px;
+    }
+
+ }

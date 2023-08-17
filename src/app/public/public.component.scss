@@ -1,0 +1,267 @@
+.cards {
+  border-radius: 5px;
+  height: 180px;
+  // cursor: pointer;
+  position: relative;
+  transform-style: preserve-3d;
+  border: 1px solid #1A9CC9;
+  padding: 0 10px;
+}
+
+.face {
+  position: absolute;
+  border-radius: inherit;
+  backface-visibility: hidden;
+}
+
+.front {
+  transform: rotateY(180deg);
+}
+
+.sideCotainer {
+  width: 100% !important;
+  overflow: auto;
+  max-height: 90vh !important;
+}
+
+.sideCotainer::-webkit-scrollbar {
+  width: 8px;
+  height: 10px;
+}
+
+.sideCotainer::-webkit-scrollbar-track {
+  box-shadow: inset 0 0 6px rgba(0, 0, 0, 0.3);
+  border-radius: 3px;
+  background-color: #fff;
+}
+
+.sideCotainer::-webkit-scrollbar-thumb {
+  background-color: #154d53 !important;
+  border-radius: 3px;
+}
+
+.accountItem {
+  cursor: pointer;
+}
+
+.mat-menu-item svg {
+  color: #136481;
+}
+
+.mat-menu-item {
+  padding: 0px 24px 0px 0px !important;
+}
+
+::ng-deep .mat-tree {
+  background: #f9fafc;
+}
+
+::ng-deep .mat-tree-node {
+  font-size: 17px;
+  cursor: pointer;
+  transition: 0.5s;
+}
+
+::ng-deep .mat-tree-node:hover {
+  // font-size: 17.3px;
+  opacity: 0.6;
+}
+
+.cardTitle {
+  margin-top: 14%;
+  height: 2px;
+  border-radius: 5px;
+}
+
+
+@media (min-width: 766px) and (max-width: 1228px) {
+  // .cards {
+  //   width: 35%;
+  // }
+
+  .rowCon {
+    margin-left: 13rem !important;
+  }
+}
+
+
+@media only screen and (max-width: 767px) {
+
+
+  .rowCon {
+    margin-left: -3rem !important;
+    margin-right: 0.5rem !important;
+  }
+}
+
+
+.asideMain {
+  position: fixed;
+  left: 0px;
+  top: 0px;
+  height: 100vh;
+  background: #f9fafc;
+  z-index: 100;
+  padding: 0px;
+  width: 0%;
+  transition: all 0.5s;
+
+}
+
+.sidenav {
+  z-index: 99;
+  position: relative;
+  width: 37%;
+  transition: all 0.5s;
+}
+
+.closeHamburger {
+  text-align: center;
+  float: right;
+  width: 16%;
+  background-color: #fff;
+  border-right: 3px solid #6495ed;
+  border-bottom: 3px solid #6495ed;
+  border-top: 3px solid #6495ed;
+  cursor: pointer;
+  color: #6495ed;
+  -webkit-text-stroke: 19px red;
+  border-bottom-right-radius: 10px;
+  border-top-right-radius: 10px;
+  margin-right: -16.5%;
+  height: 65px;
+  margin-top: -2px;
+}
+
+.hamburgerIcon {
+  animation: hamburgerRotate 2s;
+  transform: rotate(180deg);
+}
+
+@keyframes hamburgerRotate {
+  0% {
+    transform: rotate(0deg);
+  }
+
+  100% {
+    transform: rotate(540deg);
+  }
+}
+
+.hamburgerIcon-otherside {
+  animation: hamburgerRotateOtherside 2s;
+
+}
+
+@keyframes hamburgerRotateOtherside {
+  0% {
+    transform: rotate(540deg);
+  }
+
+  100% {
+    transform: rotate(0deg);
+  }
+}
+
+.main {
+  background-image: url(../../assets/backgr.jpg);
+  background-size: cover !important;
+  background-repeat: no-repeat;
+  // filter: brightness(0.5);
+  //padding: 64px 25px 15px 25px;
+  transition: 0.3s;
+  overflow: auto;
+  height: 100vh;
+  // background: #dbdbdb;
+}
+
+.main::-webkit-scrollbar {
+  width: 7px;
+  height: 7px;
+}
+
+.main::-webkit-scrollbar-track {
+  box-shadow: none;
+  border-radius: 3px;
+  background-color: #fff;
+}
+
+.main::-webkit-scrollbar-thumb {
+  background-color: #830afa !important;
+  border-radius: 3px;
+}
+
+.main-item {
+  height: 100%;
+  padding: 25px;
+  // background:#dbdbdb;
+  // background-image: url(../../assets/bg4.png);
+  // background-size: cover;
+  // background-repeat: no-repeat;
+
+  // background: #1D976C;  /* fallback for old browsers */
+  // background: -webkit-linear-gradient(to left, #93F9B9, #1D976C);  /* Chrome 10-25, Safari 5.1-6 */
+  // background: linear-gradient(to left, #93F9B9, #1D976C); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+  
+  position: relative;
+}
+
+.brandLogo {
+  height: 52px;
+  width: 100% !important;
+}
+
+.logo {
+  width: 83% !important;
+}
+
+.pageTitle {
+  color: #f0d100;
+  font-size: 20px;
+  // margin-left: 4%;
+  // min-width: 150px !important;
+}
+
+
+// number input counter icon silir
+
+input::-webkit-outer-spin-button,
+input::-webkit-inner-spin-button {
+  /* display: none; <- Crashes Chrome on hover */
+  -webkit-appearance: none !important;
+  margin: 0;
+  /* <-- Apparently some margin are still there even though it's hidden */
+}
+
+input[type=number] {
+  -moz-appearance: textfield !important;
+  /* Firefox */
+}
+
+
+.title {
+  text-align: center;
+  font-weight: bold;
+  font-size: 40px;
+  -webkit-text-stroke: 1px #ff8c00;
+  color: #6495ed;
+}
+
+@media only screen and (max-width: 1070px) {
+
+  .title {
+    font-size: 26px;
+  }
+}
+
+@media only screen and (max-width: 792px) {
+  .asideMain {
+    width: 33% !important;
+  }
+}
+
+@media only screen and (max-width: 592px) {
+  .asideMain {
+    width: 49% !important;
+  }
+}

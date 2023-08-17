@@ -1,0 +1,42 @@
+// ::ng-deep .slick-track {
+//     width: 100% !important;
+// }
+
+// .slick-slide {
+//     display: none;
+//     float: left;
+//     max-height: 650px;
+//     width: 100% !important;
+//     min-height: 1px;
+// }
+
+::ng-deep .carousel {
+    position: relative;
+    background: #dddddd !important;
+}
+
+.carousel-con {
+    width: 80%;
+    margin: auto;
+    display: block;
+}
+
+.golden-img {
+    background-color: #AF7832;
+    display: block;
+    // width: 82%;
+    height: 100%;
+    // display: inline-block;
+}
+
+.golden-img img{
+    max-width: 100% !important;
+}
+
+.carousel-caption h2{
+    font-size: 33px;
+}
+
+.carousel-caption p{
+    font-size: 20px;
+}

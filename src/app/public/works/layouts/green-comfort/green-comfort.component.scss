@@ -1,0 +1,62 @@
+.main {
+    height: 100vh;
+    background: url(../../../../../assets/layout-images/green-comfort/green-bg.svg);
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    background-position: center;
+    background-size: cover;
+    position: relative;
+    display: flex;
+    flex-direction: column;
+}
+
+.footer {
+    position: absolute;
+    left: 0;
+    bottom: 0;
+    width: 100%;
+}
+
+.footer span {
+    color: #F5F2CB;
+    font-family: Branch;
+    font-size: 24px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: normal;
+}
+
+.content-text {
+    color: #F5F2CB;
+    font-family: Branch;
+    font-size: 100px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: normal;
+    position: relative;
+    height: 35vh;
+    width: 100%;
+    margin: auto;
+}
+
+.green{
+    position: absolute;
+    left: 20%;
+    top: 0;
+    width: 100px;
+}
+
+.comfort{
+    position: absolute;
+    left: 40%;
+    bottom: 0;
+    width: 100px;
+}
+
+@media only screen and (max-width: 995px) {
+    .content-text {
+        font-size: 70px;
+        height: 25vh;
+    }
+  
+  }

@@ -1,0 +1,208 @@
+// .progress-bar {
+//     display: flex;
+//     flex-direction: row !important;
+//     justify-content: space-between;
+//     list-style: none;
+//     padding: 0;
+//     margin: 0 0 1rem 0;
+// }
+
+// .progress-bar li {
+//     flex: 2;
+//     display: flex;
+//     position: relative;
+//     // padding: 0 0 14px 0;
+//     font-size: var(--font-size-default);
+//     line-height: 1.5;
+//     color: var(--color-green);
+//     font-weight: 600;
+//     white-space: nowrap;
+//     overflow: visible;
+//     min-width: 0;
+//     text-align: center;
+//     border-bottom: 2px solid var(--color-gray-disabled);
+// }
+
+// .progress-bar li::before {
+//     content: "";
+//     width: 13px;
+//     height: 12px;
+//     border-radius: 50%;
+//     background-color: #b5b5b5;
+// }
+
+// .progress-bar .is-complete::before {
+//     content: "";
+//     width: 14px;
+//     height: 12px;
+//     border-radius: 50%;
+//     background-color: #00bd58;
+// }
+
+// .progress-bar .is-active::before {
+//     content: "";
+//     width: 15px;
+//     height: 13px;
+//     border-radius: 50%;
+//     background-color: white;
+//     border: 3px solid #00bd58;
+// }
+
+
+// .progress-bar li:not(:last-child) span {
+//     display: inline-block;
+//     width: 100%;
+//     background: #b5b5b5;
+//     height: 3px;
+//     margin: auto;
+// }
+
+// .progress-bar .is-complete span {
+//     display: inline-block;
+//     width: 100%;
+//     background: #00bd58 !important;
+//     height: 2px;
+//     margin: auto;
+// }
+
+
+.cardsSkill {
+    border-radius: 10px;
+    position: relative;
+    overflow: hidden;
+    cursor: pointer;
+    transition: 0.5s;
+    background: #e8e5e5;
+    max-height: 150px;
+    min-height: 150px;
+  }
+  
+  .cardsSkill h3 {
+    margin: 0;
+    font-weight: 600;
+    font-size: 17px;
+    
+  }
+  
+  .card-pattern {
+    color: #fff;
+    position: absolute;
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    top: -9px;
+    right: -9px;
+    padding-top: 11px;
+    padding-right: 5px;
+  }
+    
+  .cardModules {
+    position: relative;
+    transform-style: preserve-3d;
+    min-width: 220px;
+  }
+  
+  
+  // base
+  .flip {
+    position: relative;
+  
+    >.front,
+    >.back {
+      display: block;
+      transition-timing-function: cubic-bezier(.175, .885, .32, 1.275);
+      transition-duration: .5s;
+      transition-property: transform, opacity;
+    }
+  
+    >.front {
+      transform: rotateY(0deg);
+    }
+  
+    >.back {
+      position: absolute;
+      opacity: 0;
+      top: 0px;
+      left: 0px;
+      width: 100%;
+      height: 100%;
+      transform: rotateY(-180deg);
+      z-index: -1;
+    }
+  
+    &.flip-vertical {
+      >.back {
+        transform: rotateX(-180deg);
+      }
+  
+      &:hover {
+        >.front {
+          transform: rotateX(180deg);
+        }
+  
+        >.back {
+          transform: rotateX(0deg);
+        }
+      }
+    }
+  }
+
+// custom
+.flip {
+    position: relative;
+    display: inline-block;
+    width: 100%;
+  
+    >.front,
+    >.back {
+      display: block;
+      color: white;
+      width: inherit;
+      background-size: cover !important;
+      background-position: center !important;
+      background: #e8e5e5;
+      border-radius: 10px;
+  
+      p {
+        font-size: 3rem;
+        // line-height: 160%;
+        font-weight: 600;
+        color: #999;
+        margin: 0;
+      }
+    }
+  }
+  
+  .flip-flop {
+    >.front {
+      transform: rotateY(180deg);
+    }
+  
+    >.back {
+      z-index: 999;
+      opacity: 1;
+      transform: rotateY(0deg);
+    }
+  }
+  
+  .cardContentFront {
+    width: 100%;
+    top: 0;
+    margin: auto 0;
+    bottom: 0;
+    position: absolute;
+    height: 60% !important;
+  }
+  
+  .cardContentBack{
+    position: absolute;
+    margin: auto;
+    top: 0;
+    left: 0;
+    right: 0;
+    justify-content: center;
+    bottom: 0;
+    height: 60%;
+    display: flex;
+    align-items: center;
+  }

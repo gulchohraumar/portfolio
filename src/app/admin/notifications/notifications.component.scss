@@ -1,0 +1,38 @@
+::ng-deep .slick-list,
+.slick-track {
+  max-height: 350px !important;
+  overflow: auto;
+}
+
+.messageContent {
+  border: 1px dashed #dedede;
+}
+
+.messageContent span {
+  color: red;
+}
+
+.card-img-top {
+  width: 35%;
+  margin: auto;
+}
+
+.card-content {
+  border: 1px solid #dedede;
+  border-radius: 10px;
+  cursor: pointer;
+  height: 151px !important;
+}
+
+.card-title {
+  font-size: 14px;
+}
+
+.noContent {
+  height: 145px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: #c0c0c0;
+
+}

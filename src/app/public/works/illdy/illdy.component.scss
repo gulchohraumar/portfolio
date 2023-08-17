@@ -1,0 +1,543 @@
+.top-header {
+    position: relative;
+    min-height: 100vh;
+    background: url(../../../../assets/projects/illdy/front-page-header.jpg);
+    background-size: cover;
+    background-position: bottom;
+}
+
+.illy-logo a {
+
+    font-family: 'Akaya Telivigala', cursive;
+    font-size: 70px;
+    text-decoration: none;
+    float: left;
+    margin-left: 50px;
+    margin-top: 20px;
+    color: rgb(218, 214, 214);
+}
+
+.nav-links {
+    float: right;
+    margin-top: 40px;
+}
+
+.nav-links ul li {
+    display: inline-block;
+}
+
+.nav-links ul li a {
+    color: white;
+    cursor: pointer;
+    text-decoration: none;
+    font-size: 18px;
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+}
+
+.nav-links .col-lg-2 {
+    text-align: center !important;
+}
+
+.header-content {
+    color: white;
+    font-family: "Poppins", sans-serif;
+    clear: both;
+    font-size: 40px;
+    letter-spacing: 3px;
+    word-spacing: -9px;
+    position: absolute;
+    right: 0;
+    top: 50%;
+    bottom: 0;
+    text-align: center;
+    width: 100%;
+    margin: auto;
+}
+
+
+.header-content span {
+    color: yellow;
+}
+
+.header-content h1 {
+    font-size: 50px;
+    font-weight: 700;
+}
+
+.header-description {
+    color: white;
+    position: absolute;
+    text-align: center;
+    font-size: 16px;
+    font-family: "Lato", sans-serif;
+    left: 0;
+    right: 0;
+    top: 70%;
+    bottom: 0;
+    margin: auto;
+}
+
+.header-links {
+    text-align: center;
+    padding: 10px 25px;
+    display: inline-block;
+    width: 160px;
+    border-radius: 3px;
+    text-decoration: none;
+    font-size: 15px;
+    font-weight: 900;
+    font-family: 'Lato', sans-serif;
+    color: white;
+}
+
+.learn-more {
+    border: 3px solid white;
+    background: rgba(83, 82, 82, 0.555);
+}
+
+.learn-more {
+    border: 3px solid white;
+    background: rgba(83, 82, 82, 0.555);
+}
+
+.download-link {
+    background-color: rgb(243, 219, 7);
+    border: 3px solid rgb(243, 219, 7);
+}
+
+.download-link:hover {
+    background-color: rgb(110, 66, 110);
+    border: 3px solid rgb(110, 66, 110);
+}
+
+.learn-more:hover {
+    background: rgba(83, 82, 82, 0.068);
+}
+
+.learn-about {
+    margin: 0;
+    width: 100%;
+    color: white;
+    position: absolute;
+    text-align: center;
+    font-size: 16px;
+    font-family: "Lato", sans-serif;
+    right: 0;
+    top: 85%;
+    bottom: 0;
+}
+
+.about-logo {
+    font-size: 38px;
+    font-family: 'Poppins', sans-serif;
+    font-weight: 900;
+    color: rgb(63, 62, 62);
+    text-align: center;
+}
+
+.about-content {
+    color: rgb(128, 127, 127);
+    font-family: lato;
+    text-align: center;
+    font-size: 18px;
+}
+
+.prgres-div {
+    display: inline-block;
+}
+
+.prgressprc {
+    width: 14%;
+    text-align: center;
+    padding: 0px 0 0;
+    border-radius: 3px;
+    margin: 0 0 10px 0;
+    color: #fff;
+}
+
+.prgressprc1 {
+    background-color: rgb(214, 107, 88);
+    margin-left: 53%;
+}
+
+.progress-content1 {
+    color: rgb(214, 107, 88);
+}
+
+.progress-barcolor {
+    background-color: rgb(206, 203, 203);
+    width: 100%;
+    height: 3px;
+}
+
+.prgrss-colored {
+    height: 3px;
+}
+
+.progress-content {
+    font-size: 18px;
+    width: 100%;
+    margin-top: 30px;
+}
+
+.prgrs1 {
+    background-color: rgb(214, 107, 88);
+    width: 60%;
+}
+
+.prgrs2 {
+    background-color: rgb(218, 200, 42);
+    width: 82%;
+}
+
+.prgressprc2 {
+    background-color: rgb(218, 200, 42);
+    margin-left: 73%;
+}
+
+.progress-content2 {
+    color: rgb(218, 200, 42);
+}
+
+.prgressprc3 {
+    background-color: rgb(110, 66, 110);
+    margin-left: 76%;
+}
+
+.prgrs3 {
+    background-color: rgb(110, 66, 110);
+    width: 86%;
+}
+
+.progress-content3 {
+    color: rgb(110, 66, 110);
+}
+
+.project-content {
+    text-align: center;
+    color: rgb(107, 107, 107);
+    font-size: 18px;
+}
+
+.project-links {
+    height: 70%;
+    margin-top: 5%;
+}
+
+.project-links img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: 0.7s;
+}
+
+.project-links img:hover {
+    opacity: 0.5;
+}
+
+/*start testimonials*/
+.testimonials-section {
+    padding: 5% 0;
+    background-color: rgba(74, 41, 112, 0.856);
+    position: relative;
+}
+
+.picture {
+    background-color: tomato;
+    height: 140px;
+    width: 140px;
+    border-radius: 50%;
+    margin: 0 auto
+}
+
+.picture img {
+    width: 100%;
+    height: 100%;
+    border-radius: 50%;
+}
+
+.content-testimonial {
+    background-color: rgb(90, 54, 131);
+    width: 70%;
+    padding: 4%;
+    font-size: 15px;
+    text-align: center;
+    margin: 0 auto;
+    color: white;
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+}
+
+.content-testimonial-triangle {
+    color: white;
+    width: 50px;
+    height: 50px;
+    background-color: rgb(90, 54, 131);
+    margin-left: auto;
+    margin-right: auto;
+    clip-path: polygon(0 0, 50% 60%, 100% 0);
+}
+
+
+.testimonials-section span {
+    display: block;
+    font-size: 20px;
+    right: 0;
+    width: 100%;
+    font-family: "Lato", sans-serif;
+    font-weight: 900;
+    text-align: center;
+    color: #fff;
+    position: absolute;
+}
+
+/* end of testimonials*/
+
+
+/* start services */
+.services-section {
+    background-color: #fff;
+    padding: 5%;
+}
+
+.content-services {
+    width: 60%;
+    text-align: center;
+    margin: 0 auto;
+    font-size: 16px;
+    color: rgb(150, 148, 148);
+    font-family: 'Lato', sans-serif;
+}
+
+.part {
+    height: 100%;
+    text-align: center;
+    font-size: 17px;
+    display: inline-block;
+    color: rgb(150, 148, 148);
+    font-family: 'Lato', sans-serif;
+}
+
+.part-icon {
+    font-size: 20px;
+    text-align: center;
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+    font-weight: 900;
+}
+
+.part-icon i {
+    font-size: 40px;
+    margin-bottom: 2%;
+}
+
+/* end of services*/
+
+
+.counter-bar {
+    background-color: rgba(248, 205, 11, 0.767);
+}
+
+.project-counter:nth-child(2) {
+    border-right: 1px solid white;
+    border-left: 1px solid white;
+}
+
+@media only screen and (max-width: 991px) {
+    .project-counter:nth-child(2) {
+        border: none;
+    }
+    .person-image {
+        object-fit: contain;
+    }
+}
+
+.project-count {
+    width: 100%;
+    text-align: center;
+    font-weight: 900;
+    font-size: 65px;
+    color: #fff;
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+.counter-content {
+    width: 100%;
+    font-size: 20px;
+    color: #fff;
+    text-transform: uppercase;
+    font-family: Arial, Helvetica, sans-serif;
+    font-weight: 900;
+    text-align: center;
+}
+
+/* end of counter*/
+
+// .team-section {
+//     height: 430px;
+// }
+
+.team-member {
+    font-family: 'Lato', sans-serif;
+}
+
+.person-image {
+    height: 65%;
+    min-width: 130px;
+    max-width: 130px;
+    min-height: 130px;
+    max-height: 130px;
+    border-radius: 50%;
+}
+
+.team-person h3 {
+    color: rgb(104, 103, 103);
+    font-weight: 800;
+}
+
+/* end of team section*/
+
+/*latest news*/
+.news {
+    background-color: rgb(38, 44, 56);
+}
+
+.blog-link {
+    background-color: rgb(218, 200, 42);
+    font-size: 20px;
+    border-radius: 5px;
+    padding: 5px 0;
+    margin: 5% auto;
+    text-align: center;
+    transition: 0.5s;
+}
+
+.blog-link:hover {
+    background-color: rgb(94, 57, 94);
+}
+
+.blog-link a {
+    text-decoration: none;
+    color: #fff;
+}
+
+.blog-card {
+    text-align: center;
+    background-color: #fff;
+    display: inline-block;
+    position: relative;
+}
+
+.blog-card img {
+    width: 100%;
+}
+
+.blog-card h2 {
+    text-align: center;
+    color: rgb(75, 74, 74);
+}
+
+.blog-card p,
+.blog-card2 p {
+    text-align: center;
+    font-size: 16px;
+    font-family: 'Lato', sans-serif;
+    color: grey;
+}
+
+.card-links a {
+    text-decoration: none;
+    font-size: 16px;
+    font-family: 'Lato', sans-serif;
+    color: rgb(218, 200, 42);
+}
+
+.card-links a:hover {
+    color: rgb(90, 54, 131)
+}
+
+.team-person {
+    padding-top: 1%;
+    font-family: Arial, Helvetica, sans-serif;
+
+}
+
+.social-links {
+    padding-left: 0%;
+}
+
+.social-links li {
+    display: inline-block;
+    width: 22px;
+    height: 22px;
+    border-radius: 50%;
+    text-align: center;
+    border: 1px solid rgb(214, 107, 88);
+}
+
+.team-person h3 {
+    color: rgb(104, 103, 103);
+    font-weight: 800;
+}
+
+.details {
+    color: rgb(134, 133, 133);
+}
+/* end of team section*/
+
+.footer{
+    background-color: #292826;
+    font-family: 'Lato',sans-serif;
+}
+
+.footer-container h3{
+    font-weight: 900;
+    font-size: 23px;
+    font-family: 'Poppins', sans-serif;
+    color: #ffffff;
+    text-transform: uppercase;
+}
+
+.footer-list{
+    color: #8c979e ;
+    line-height: 40px;
+    font-size: 15px;
+    font-family: 'Poppins', sans-serif;
+}
+
+.footer-list li::marker{
+    font-weight: 600;
+    font-size: 14px;
+}
+
+.footer-list li:hover, .footer-list a:hover{
+    color:rgb(104, 64, 104) ;
+}
+
+.footer-list a{
+    margin-left: 20px;
+    text-decoration: none;
+    color: #8c979e ;
+    transition: 0.3s;
+}
+/* end of FOOTER*/
+
+.copyright-container{
+    padding: 20px 0;
+    background-color: #242320;
+    position: relative;
+    font-family: 'Poppins', sans-serif;
+}
+
+.copyright-container div{
+    text-align: center;
+    font-size: 14px;
+    
+}
+
+.themeilldy{
+    color: #8c979e;
+}
+
+.copyright{
+    color: #fff;
+}
+

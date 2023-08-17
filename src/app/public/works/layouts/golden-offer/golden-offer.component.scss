@@ -1,0 +1,39 @@
+.main-golden {
+    background: #96672c;
+    height: 100vh;
+    overflow-y: auto;
+    overflow-x: hidden;
+    padding: 20px 45px 0;
+    color: #F1F3F1;
+    font-family: 'EB Garamond', serif !important;
+    position: relative;
+ }
+
+ .img{
+    width: 80%;
+    // max-height: 353px;
+    mix-blend-mode: hard-light;
+ }
+
+ .arrow{
+    width: 100%;
+ }
+
+ .empty-content{
+    height: 20vh;
+ }
+
+ .text-content{
+    position: absolute;
+    width: 100%;
+    top: 0;
+    z-index: 99999;
+    max-width: 67pc;
+    left:15%;
+ }
+
+ .text-word{
+    font-size: 100px;
+    color: #EBD5B7;
+    z-index: 99999;
+ }

@@ -1,0 +1,52 @@
+<!-- <div>
+    <p>Fullname: Gulchohra Umarli</p>
+    <p>Email: gulch@gmail.com</p>
+    <p>Phone: +994702584474</p>
+    <p><b>Message:</b> <br> Lorem ipsum dolor sit amet.</p>
+
+</div> -->
+
+<div class="row bg-white mat-elevation-z6 col-lg-11 mx-auto py-2" style="margin: 0; border-radius: 15px;">
+    <div slickContainer #slickController="slick" [slickConfig]="config">
+        <ng-container *ngIf="slickController.initialize">
+            <div class="row" style="margin: 0;">
+
+                <div slickItem class="col-lg-3 " *ngFor="let article of articlesData">
+                    <div class="card px-1" style="border: none !important;">
+                        <div class="card-content" (click)="handleSelect(article)">
+                            <div class="img-wrapper">
+                                <img src="../../../assets/admin/avatar.svg" class="card-img-top mt-2" alt="">
+                            </div>
+                            <div class="card-body text-center">
+                                <span class="card-title">{{article.name}} {{article.surname}}</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </ng-container>
+    </div>
+
+    <div class="my-3 messageContent pt-3 pb-2 col-lg-7 mx-auto">
+        <div *ngIf="selectedData" class="content-body">
+            <div class="row justify-content-center" style="margin: 0;">
+                <p class="col-lg-6"><span>Name:</span> {{selectedData?.name}}</p>
+                <p class="col-lg-6"><span>Surname:</span> {{selectedData?.surname}}</p>
+            </div>
+            <div class="row justify-content-center" style="margin: 0;">
+                <p class="col-lg-6"><span>Phone:</span> {{selectedData?.phone}}</p>
+                <p class="col-lg-6"><span>Email:</span> {{selectedData?.email}}</p>
+            </div>
+            <div class="row justify-content-center" style="margin: 0;">
+                <p class="col-lg-12"><span>Message:</span> <br>
+                    {{selectedData?.message}}
+                </p>
+            </div>
+        </div>
+
+        <div *ngIf="!selectedData" class="noContent" >
+            Not content yet...
+        </div>
+    </div>
+</div>

@@ -1,0 +1,368 @@
+ul {
+    list-style: none;
+}
+
+.mat-card-footer {
+    font-size: 14px;
+}
+
+
+.user-card img {
+    height: 100%;
+    width: 100%;
+    border-radius: 50%;
+}
+
+.hoverable {
+    position: relative;
+    display: block;
+    cursor: pointer;
+    width: 30%;
+    height: 17vh !important;
+    border-radius: 50%;
+}
+
+.hoverable .hover-text {
+    position: absolute;
+    display: none;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    z-index: 2;
+}
+
+.hoverable .background {
+    position: absolute;
+    display: none;
+    top: 0;
+    left: 0;
+    bottom: 0;
+    right: 0;
+    background-color: rgba(255, 255, 255, 0.662);
+    pointer-events: none;
+    border-radius: 50%;
+    z-index: 1;
+}
+
+.hoverable:hover .hover-text {
+    display: block;
+}
+
+.hoverable:hover .background {
+    display: block;
+}
+
+#fileInput {
+    display: none;
+}
+
+.mat-card-content {
+    margin-bottom: 0 !important;
+}
+
+
+
+
+
+
+
+
+body {
+    background: #f2f4f8;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    flex-wrap: wrap;
+    height: 100vh;
+    font-family: "Open Sans";
+}
+
+.education {
+    --bg-color: #ffd861;
+    --bg-color-light: #ffeeba;
+    --text-color-hover: #4C5656;
+    --box-shadow-color: rgba(255, 215, 97, 0.48);
+}
+
+.credentialing {
+    --bg-color: #B8F9D3;
+    --bg-color-light: #e2fced;
+    --text-color-hover: #4C5656;
+    --box-shadow-color: rgba(184, 249, 211, 0.48);
+}
+
+.wallet {
+    --bg-color: #CEB2FC;
+    --bg-color-light: #F0E7FF;
+    --text-color-hover: #fff;
+    --box-shadow-color: rgba(206, 178, 252, 0.48);
+}
+
+.human-resources {
+    --bg-color: #DCE9FF;
+    --bg-color-light: #f1f7ff;
+    --text-color-hover: #4C5656;
+    --box-shadow-color: rgba(220, 233, 255, 0.48);
+}
+
+.card {
+    width: 100%;
+    // height: 321px;
+    cursor: pointer;
+    background: #fff;
+    border-top-right-radius: 5px;
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+    box-shadow: 0 14px 26px rgba(0, 0, 0, 0.04);
+    transition: all 0.3s ease-out;
+    text-decoration: none;
+}
+
+.card:hover {
+    transform: translateY(-5px) scale(1.005) translateZ(0);
+    box-shadow: 0 24px 36px rgba(0, 0, 0, 0.11),
+        0 24px 46px var(--box-shadow-color);
+}
+
+.card:hover .overlay {
+    transform: scale(4) translateZ(0);
+}
+
+.card:hover .card-pattern {
+    background-color: #888888 !important;
+
+}
+
+.card:hover .circle {
+    border-color: #fbfbfb;
+    background: var(--bg-color);
+}
+
+.card:hover .circle:after {
+    background: #fbfbfb;
+}
+
+.card:hover .card-title {
+    color: #fff !important;
+}
+
+.card:hover p {
+    color: var(--text-color-hover);
+}
+
+.card:active {
+    transform: scale(1) translateZ(0);
+    box-shadow: 0 15px 24px rgba(0, 0, 0, 0.11),
+        0 15px 24px var(--box-shadow-color);
+}
+
+.card p {
+    font-size: 17px;
+    color: #4C5656;
+    margin-top: 35px;
+    z-index: 1000;
+    transition: color 0.3s ease-out;
+}
+
+.circle {
+    width: 131px;
+    height: 131px;
+    margin: auto;
+    top: 3px;
+    border-radius: 50%;
+    background: #fff;
+    border: 2px solid var(--bg-color);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+    z-index: 1;
+    transition: all 0.3s ease-out;
+}
+
+.circle:after {
+    content: "";
+    width: 118px;
+    height: 118px;
+    display: block;
+    position: absolute;
+    background: #fbfbfb;
+    border-radius: 50%;
+    top: 5px;
+    left: 5px;
+    transition: opacity 0.3s ease-out;
+}
+
+.circle img {
+    width: 60%;
+    z-index: 99999;
+    transform: translateZ(0);
+}
+
+.overlay {
+    width: 118px;
+    position: absolute;
+    height: 118px;
+    border-radius: 50%;
+    background: var(--bg-color);
+    top: -15px;
+    margin: auto;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    z-index: 0;
+    transition: transform 0.3s ease-out;
+}
+
+.contentCard {
+    height: 155px;
+    display: flex;
+    align-items: center;
+    padding: 0 6px;
+}
+
+.cards {
+    border-radius: 10px;
+    position: relative;
+    overflow: hidden;
+    cursor: pointer;
+    transition: 0.5s;
+    background: #e8e5e5;
+    max-height: 150px;
+    min-height: 150px;
+}
+
+.cards h3 {
+    margin: 0;
+    font-weight: 600;
+    font-size: 17px;
+}
+
+.card-pattern {
+    color: #fff;
+    position: absolute;
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    top: -9px;
+    right: -9px;
+    padding-top: 10px;
+    padding-left: 8px;
+    z-index: 99999999;
+}
+
+.card-img path {
+    fill: red;
+    color: red;
+}
+
+.cardModules {
+    position: relative;
+    transform-style: preserve-3d;
+    min-width: 250px;
+}
+
+
+// base
+.flip {
+    position: relative;
+
+    >.front,
+    >.back {
+        display: block;
+        transition-timing-function: cubic-bezier(.175, .885, .32, 1.275);
+        transition-duration: .5s;
+        transition-property: transform, opacity;
+    }
+
+    >.front {
+        transform: rotateY(0deg);
+    }
+
+    >.back {
+        position: absolute;
+        opacity: 0;
+        top: 0px;
+        left: 0px;
+        width: 100%;
+        height: 100%;
+        transform: rotateY(-180deg);
+        z-index: -1;
+    }
+
+    &.flip-vertical {
+        >.back {
+            transform: rotateX(-180deg);
+        }
+
+        &:hover {
+            >.front {
+                transform: rotateX(180deg);
+            }
+
+            >.back {
+                transform: rotateX(0deg);
+            }
+        }
+    }
+}
+
+// custom
+.flip {
+    position: relative;
+    display: inline-block;
+    width: 100%;
+
+    >.front,
+    >.back {
+        display: block;
+        color: white;
+        width: inherit;
+        background-size: cover !important;
+        background-position: center !important;
+        background: #e8e5e5;
+        border-radius: 10px;
+
+        p {
+            font-size: 1rem;
+            line-height: 160%;
+            color: #999;
+            margin: 0;
+        }
+    }
+}
+
+.flip-flop {
+    >.front {
+        transform: rotateY(180deg);
+    }
+
+    >.back {
+        z-index: 999;
+        opacity: 1;
+        transform: rotateY(0deg);
+    }
+}
+
+.cardContentFront {
+    width: 100%;
+    top: 0;
+    margin: auto 0;
+    bottom: 0;
+    position: absolute;
+    height: 60% !important;
+}
+
+.cardContentBack {
+    position: absolute;
+    margin: auto 0;
+    top: 0;
+    bottom: 0;
+    height: 60%;
+    display: flex;
+    align-items: center;
+}

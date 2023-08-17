@@ -1,0 +1,78 @@
+<div class="cardAnimations ">
+
+    <div class="row py-4" style="margin: 0;">
+        <h2 class="text-start px-4 mt-3 col-lg-12 m-0 modul-headers m-0">
+            Contact
+        </h2>
+        <div class="modul-header-border"> </div>
+
+        <form class="p-0 mt-2" [formGroup]="formGroup">
+            <div class="row p-0" style="margin: 0;">
+                <div class="col-lg-12 row mt-2 p-0" style="margin: 0;">
+                    <div class="col-lg-6">
+                        <div class="field">
+                            <label for="name" title="Name" data-title="Name"></label>
+                            <input formControlName="name" type="text" id="name" name="name" placeholder="Name" />
+                        </div>
+                    </div>
+                    <div class="col-lg-6">
+                        <div class="field">
+                            <label for="surname" title="Surname" data-title="Surname"></label>
+                            <input formControlName="surname" type="text" id="surname" name="surname"
+                                placeholder="Surname" />
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-lg-12 row mt-2 p-0" style="margin: 0;">
+                    <div class="col-lg-6 ">
+                        <div class="field text-start">
+                            <label for="email" title="Email" data-title="Email"></label>
+                            <input formControlName="email" type="text" id="email" name="email" placeholder="Email" />
+                            <small class="text-danger"
+                            *ngIf="FF['email'].errors?.['required'] && !isFormValid">*Required field</small>
+                        </div>
+                       
+                    </div>
+                    <div class="col-lg-6">
+                        <div class="field">
+                            <label for="phone" title="Phone" data-title="Phone"></label>
+                            <input formControlName="phone" type="text" id="phone" name="phone" placeholder="Phone" />
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-lg-12 row mt-2 p-0" style="margin: 0;">
+                    <div class="col-lg-6">
+                        <div class="field text-start">
+                            <label for="info" title="Message" data-title="Message"></label>
+                            <textarea formControlName="message" id="message" placeholder="Message"></textarea>
+                            <small class="text-danger"
+                        *ngIf="FF['message'].errors?.['required'] && !isFormValid">*Required field</small>
+                        </div>
+                        
+                    </div>
+                    <div class="col-lg-6 mt-3">
+                        <ngx-captcha #captchaElem [config]="captchaConfig"></ngx-captcha>
+                    </div>
+                </div>
+
+                <div class="col-lg-12 p-0 justify-content-end row" style="margin: 0;">
+                    <div class="col-lg-6 px-4">
+                        <span [ngClass]="{'text-danger': isCaptcha == false , 'text-success': isCaptcha == true}">
+                            <svg *ngIf="isCaptcha" xmlns="http://www.w3.org/2000/svg" width="16" height="16"
+                                fill="currentColor" class="bi bi-check" viewBox="0 0 16 16">
+                                <path
+                                    d="M10.97 4.97a.75.75 0 0 1 1.07 1.05l-3.99 4.99a.75.75 0 0 1-1.08.02L4.324 8.384a.75.75 0 1 1 1.06-1.06l2.094 2.093 3.473-4.425a.267.267 0 0 1 .02-.022z" />
+                            </svg>
+                            {{captchaText}}
+                        </span>
+                        <button class="save mt-2" (click)="save()">Send message</button>
+                    </div>
+                </div>
+
+            </div>
+        </form>
+    </div>
+
+</div>
