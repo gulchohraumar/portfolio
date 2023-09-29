@@ -366,3 +366,48 @@ body {
     display: flex;
     align-items: center;
 }
+
+
+//Stacked effect card
+
+.img-con {
+    max-height: 200px;
+}
+
+.img-con img{
+    object-fit: cover;
+    max-height: 170px;
+    width: 100%;
+}
+
+.stacked-card{
+    cursor: pointer;
+    background-color: #fff;
+}
+
+.stacked-card::after,
+.stacked-card::before{
+    content: '';
+    position: absolute;
+    inset: 0;
+    z-index: -1;
+    background-color: #fff;
+    box-shadow: 0 1rem 2rem rgb(0 0 0 / 0.2);
+    border: solid 2px #ccc;
+    border-radius: 10px;
+    transition: rotate 200ms translate 200ms;
+    width: 100%;
+}
+
+.stacked-card:hover::after{
+    rotate: 8deg;
+    transform: 2rem -2rem;
+}
+
+.stacked-card:hover::before{
+    rotate: -10deg;
+    translate: -1rem 0rem;
+}
+
+
+

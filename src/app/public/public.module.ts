@@ -48,6 +48,8 @@ import { HomeComponent } from './home/home.component';
 import { MatSortHeader, MatSortModule } from '@angular/material/sort';
 import { NgxCaptchaModule } from '@binssoft/ngx-captcha';
 import { NgxSlickJsModule } from 'ngx-slickjs';
+import {CdkMenuModule} from '@angular/cdk/menu';
+
 
 @NgModule({
     declarations: [
@@ -104,6 +106,7 @@ import { NgxSlickJsModule } from 'ngx-slickjs';
         HttpClientModule,
         MatSortModule,
         NgxCaptchaModule,
+        CdkMenuModule,
         NgxSlickJsModule.forRoot({
             links: {
               jquery: "https://code.jquery.com/jquery-3.4.0.min.js",

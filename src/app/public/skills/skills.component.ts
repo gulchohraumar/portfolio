@@ -98,7 +98,7 @@ export class SkillsComponent implements OnInit {
       },
       {
         name: "JavaScript ",
-        url: "../../../assets/skills/jss.png",
+        url: "../../../assets/skills/js.png",
         percent: '85%',
         color: '#d6ba32',
         point: [
@@ -157,6 +157,26 @@ export class SkillsComponent implements OnInit {
         state: false,
       },
       {
+        name: "RESTful Api",
+        url: "../../../assets/skills/api.png",
+        percent: '',
+        color: 'rgb(0 150 214)',
+        point: [
+          { isActive: true },
+          { isActive: true },
+          { isActive: true },
+          { isActive: true },
+          { isActive: true },
+          { isActive: true },
+          { isActive: true },
+          { isActive: false },
+          { isActive: false },
+          { isActive: false },
+        ],
+        countActive: 7,
+        state: false,
+      },
+      {
         name: "Git and Github",
         url: "../../../assets/skills/gitHub.png",
         percent: '90%',
@@ -187,14 +207,6 @@ export class SkillsComponent implements OnInit {
   // }
 
   cardClicked(id: number) {
-    // if (this.skills[id].stateName === "default") {
-    //   this.skills[id].stateName = "flipped"; 
-    // }
-    
-    // else {
-    //   this.skills[id].stateName = "default";
-    // }
-
     this.skills[id].state = !this.skills[id].state;
   }
 
