@@ -1081,6 +1081,31 @@ export class TablesComponent implements OnInit {
     this.calculateTotalsExpandable();
 
   }
+
+
+  //Excel export table with showing table headers
+  getFileName = (name: string) => {
+    let sheetName = name || "HeaderExcel";
+    let fileName = `${sheetName}`;
+    return {
+      sheetName,
+      fileName
+    };
+  };
+
+
+  exportTableToExcel(tableId: string, name?: any) {
+    let { sheetName, fileName } = this.getFileName(name);
+    let targetTableElm = document.getElementById(tableId);
+    let wb = XLSX.utils.table_to_book(targetTableElm, <XLSX.Table2SheetOpts>{
+      sheet: sheetName
+    });
+    XLSX.writeFile(wb, `${fileName}.xlsx`);
+  }
+
+  handleExportExcelWithHeader(){
+    this.exportTableToExcel('excelHeaderTable', 'Header excel')
+  }
   
 
 }
