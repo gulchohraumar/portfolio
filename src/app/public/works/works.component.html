@@ -7,13 +7,18 @@
     </div>
 
     <div class="row px-2" style="margin: 0;">
-
-        <div class="col-lg-4 mt-3" *ngFor="let card of projects" [routerLink]="[card.link]">
-            <div class="pb-3 px-2 mat-elevation-z8 cards" [style.Color]="card.color">
+        <div class="col-lg-4 mt-3" *ngFor="let card of projects" >
+            <div *ngIf="card.link" class="pb-3 px-2 mat-elevation-z8 cards" [routerLink]="[card.link]" [style.Color]="card.color">
                 <div class="card-pattern" [style.background-color]="card.color"></div>
                 <img [src]="card.url" style="width: 90px; height: 80px;" alt="" class="mt-4 card-img">
                 <h3 class="mt-2">{{card.title}}</h3>
             </div>
+            <a *ngIf="card.hiperLink" [href]="card.hiperLink" target="_blank" class="pb-3 px-2 d-block mat-elevation-z8 cards" [style.Color]="card.color">
+                <div class="card-pattern" [style.background-color]="card.color"></div>
+                <img [src]="card.url" style="width: 90px; height: 80px;" alt="" class="mt-4 card-img">
+                <h3 class="mt-2">{{card.title}}</h3>
+            </a>
         </div>
+       
     </div>
 </div>
