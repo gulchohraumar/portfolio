@@ -2,115 +2,104 @@
     <h2 class="m-0">Draggable List.</h2>
     <div class="modul-header-border"> </div>
     <div class="row mt-2" style="margin: 0;">
-        <form [formGroup]="statusForm" class="col-lg-12 d-flex px-0 py-2 mat-elevation-z6">
-            <div class=" col-lg-7" style="border-right: 1px solid #6d6d6d;">
-                <div class=" form-header row mt-1 justify-content-between" style="margin: 0;">
-                    <div class="col-lg-6 select">
-                        <div class="field p-0">
-                            <label for="moduleId" title="Module" data-title="Module"></label>
-                            <mat-form-field class="  col-lg-12">
-                                <mat-select formControlName="moduleId">
-                                    <mat-option (click)="changeModule(module.key)" [value]="module.key"
-                                        *ngFor="let module of modules">{{
-                                        module.value }}</mat-option>
-                                </mat-select>
-                            </mat-form-field>
+        <div class="col-lg-12">
+            <form [formGroup]="statusForm" class="col-lg-12 d-flex  py-3 mat-elevation-z6">
+                <div class=" col-lg-4" style="border-right: 1px solid #6d6d6d;">
+                    <div class=" form-header row mt-1 justify-content-between" style="margin: 0;">
+                        <div class="col-lg-12 select">
+                            <div class="field p-0">
+                                <label for="moduleId" title="Module" data-title="Module"></label>
+                                <mat-form-field class="  col-lg-12">
+                                    <mat-select formControlName="moduleId">
+                                        <mat-option (click)="changeModule(module.key)" [value]="module.key"
+                                            *ngFor="let module of modules">{{
+                                            module.value }}</mat-option>
+                                    </mat-select>
+                                </mat-form-field>
+                            </div>
+                        </div>
+                        <div class="col-lg-12 ">
+                            <div class="field p-0">
+                                <label for="color" title="Color" data-title="Color"></label>
+                                <input type="color" formControlName="colorCode" id="color" name="color" />
+                            </div>
                         </div>
                     </div>
-                    <div class="col-lg-6 ">
-                        <div class="field p-0">
-                            <label for="color" title="Color" data-title="Color"></label>
-                            <input type="color" formControlName="colorCode" id="color" name="color" />
-                        </div>
-                    </div>
-                </div>
-                <div class="">
                     <div class="">
-                        <div formArrayName="translations"
-                            *ngFor="let t of translations.controls; let i = index; last as isLast; first as isFirst">
-                            <div class=" form-header col-lg-12 mx-auto row " [formGroupName]="i" style="margin: 0;">
-                                <div class="col-lg-4 select" style="padding:0 !important;">
-                                    <div class="field">
-                                        <label for="firmId" title="Language" data-title="Language"></label>
-                                        <mat-form-field class="  col-lg-12">
-                                            <mat-select formControlName="langId">
-                                                <mat-option (click)="selectSubjectLang(lang.id, i)" [value]="lang.id"
-                                                    *ngFor="let lang of languages; let i= index">
-                                                    {{ lang.name }}
-                                                </mat-option>
-                                            </mat-select>
-                                        </mat-form-field>
+                        <div class="">
+                            <div formArrayName="translations"
+                                *ngFor="let t of translations.controls; let i = index; last as isLast; first as isFirst">
+                                <div class=" form-header col-lg-12 mx-auto row " [formGroupName]="i" style="margin: 0;">
+                                    <div class="col-lg-12 select" style="padding:0 !important;">
+                                        <div class="field">
+                                            <label for="firmId" title="Language" data-title="Language"></label>
+                                            <mat-form-field class="  col-lg-12">
+                                                <mat-select formControlName="langId">
+                                                    <mat-option (click)="selectSubjectLang(lang.id, i)"
+                                                        [value]="lang.id" *ngFor="let lang of languages; let i= index">
+                                                        {{ lang.name }}
+                                                    </mat-option>
+                                                </mat-select>
+                                            </mat-form-field>
+                                        </div>
+                                    </div>
+
+                                    <div class="field col-lg-12">
+                                        <input type="text" formControlName="subject" id="subjectStatus"
+                                            name="subjectStatus" />
+                                        <label for="subjectStatus" title="Subject" data-title="Subject"></label>
+                                    </div>
+
+                                    <div class=" form__group  panelInputs field col-lg-12 ">
+                                        <input type="text" class="form__field" formControlName="description"
+                                            id="description" name="description" />
+                                        <label for="description" title="Description" data-title="Description"></label>
                                     </div>
                                 </div>
+                            </div>
+                        </div>
 
-                                <div class="field col-lg-4">
-                                    <input type="text" formControlName="subject" id="subjectStatus"
-                                        name="subjectStatus" />
-                                    <label for="subjectStatus" title="Subject" data-title="Subject"></label>
-                                </div>
+                        <div class="form-header row px-3 justify-content-end" style="margin: 0;">
+                            <button class="addList mat-elevation-z6" (click)="addSubjectListItem()">
+                                <i class="fa-solid fa-plus"></i>
+                            </button>
+                        </div>
+                    </div>
+                </div>
 
-                                <div class=" form__group  panelInputs field col-lg-4 ">
-                                    <input type="text" class="form__field" formControlName="description"
-                                        id="description" name="description" />
-                                    <label for="description" title="Description" data-title="Description"></label>
+
+                <div class=" mt-2 col-lg-8 row ms-auto " *ngIf="isList" style="margin: 0;">
+                    <div cdkDropListGroup class="">
+                        <div class="example-container ">
+                            <div cdkDropList [cdkDropListData]="done" class="example-list "
+                                (cdkDropListDropped)="drop($event)">
+                                <div class="example-box " (click)="updateStatusData(item.data, i)"
+                                    *ngFor="let item of done; let i = index" cdkDrag>
+                                    {{i+1}}. {{item.message}}
+
+                                    <div class=" d-flex justify-content-end col-lg-2">
+
+                                        <div class="statusColor mt-2 me-3" [style.background-color]="item.color"></div>
+
+                                        <button (click)="removeSubjectListItem(item.data.id ,i)"
+                                            style="margin-top: -1%;" class="new bg-danger" matTooltip="Delete"
+                                            [matTooltipPosition]="'above'">
+                                            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16"
+                                                fill="currentColor" class="bi bi-trash3" viewBox="0 0 16 16">
+                                                <path
+                                                    d="M6.5 1h3a.5.5 0 0 1 .5.5v1H6v-1a.5.5 0 0 1 .5-.5ZM11 2.5v-1A1.5 1.5 0 0 0 9.5 0h-3A1.5 1.5 0 0 0 5 1.5v1H2.506a.58.58 0 0 0-.01 0H1.5a.5.5 0 0 0 0 1h.538l.853 10.66A2 2 0 0 0 4.885 16h6.23a2 2 0 0 0 1.994-1.84l.853-10.66h.538a.5.5 0 0 0 0-1h-.995a.59.59 0 0 0-.01 0H11Zm1.958 1-.846 10.58a1 1 0 0 1-.997.92h-6.23a1 1 0 0 1-.997-.92L3.042 3.5h9.916Zm-7.487 1a.5.5 0 0 1 .528.47l.5 8.5a.5.5 0 0 1-.998.06L5 5.03a.5.5 0 0 1 .47-.53Zm5.058 0a.5.5 0 0 1 .47.53l-.5 8.5a.5.5 0 1 1-.998-.06l.5-8.5a.5.5 0 0 1 .528-.47ZM8 4.5a.5.5 0 0 1 .5.5v8.5a.5.5 0 0 1-1 0V5a.5.5 0 0 1 .5-.5Z" />
+                                            </svg>
+                                        </button>
+                                    </div>
+
                                 </div>
                             </div>
                         </div>
                     </div>
-
-                    <div class="form-header row px-3 justify-content-end" style="margin: 0;">
-                        <button class="addList mat-elevation-z6" (click)="addSubjectListItem()">
-                            <svg xmlns="http://www.w3.org/2000/svg" width="25" height="25" fill="currentColor"
-                                class="bi bi-clipboard-plus" viewBox="0 0 16 16">
-                                <path fill-rule="evenodd"
-                                    d="M8 7a.5.5 0 0 1 .5.5V9H10a.5.5 0 0 1 0 1H8.5v1.5a.5.5 0 0 1-1 0V10H6a.5.5 0 0 1 0-1h1.5V7.5A.5.5 0 0 1 8 7z" />
-                                <path
-                                    d="M4 1.5H3a2 2 0 0 0-2 2V14a2 2 0 0 0 2 2h10a2 2 0 0 0 2-2V3.5a2 2 0 0 0-2-2h-1v1h1a1 1 0 0 1 1 1V14a1 1 0 0 1-1 1H3a1 1 0 0 1-1-1V3.5a1 1 0 0 1 1-1h1v-1z" />
-                                <path
-                                    d="M9.5 1a.5.5 0 0 1 .5.5v1a.5.5 0 0 1-.5.5h-3a.5.5 0 0 1-.5-.5v-1a.5.5 0 0 1 .5-.5h3zm-3-1A1.5 1.5 0 0 0 5 1.5v1A1.5 1.5 0 0 0 6.5 4h3A1.5 1.5 0 0 0 11 2.5v-1A1.5 1.5 0 0 0 9.5 0h-3z" />
-                            </svg>
-                        </button>
-                    </div>
-
                 </div>
-            </div>
 
-
-            <div class=" mt-2 col-lg-5 row ms-auto " *ngIf="isList" style="margin: 0;">
-                <div cdkDropListGroup class="">
-                    <div class="example-container ">
-                        <div cdkDropList [cdkDropListData]="done" class="example-list "
-                            (cdkDropListDropped)="drop($event)">
-                            <div class="example-box " (click)="updateStatusData(item.data, i)"
-                                *ngFor="let item of done; let i = index" cdkDrag>
-                                {{i+1}}. {{item.message}}
-
-                                <div class=" d-flex justify-content-between col-lg-2">
-                                    <!-- <div class="text-danger col-lg-2 me-4 mt-1" *ngIf="item.isCause">
-                        Compulsory
-                      </div> -->
-
-                                    <div class="statusColor mt-2 me-2" [style.background-color]="item.color"></div>
-
-                                    <button (click)="removeSubjectListItem(item.data.id ,i)" style="margin-top: -1%;"
-                                        class="new bg-danger" matTooltip="Delete" [matTooltipPosition]="'above'">
-                                        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16"
-                                            fill="currentColor" class="bi bi-trash3" viewBox="0 0 16 16">
-                                            <path
-                                                d="M6.5 1h3a.5.5 0 0 1 .5.5v1H6v-1a.5.5 0 0 1 .5-.5ZM11 2.5v-1A1.5 1.5 0 0 0 9.5 0h-3A1.5 1.5 0 0 0 5 1.5v1H2.506a.58.58 0 0 0-.01 0H1.5a.5.5 0 0 0 0 1h.538l.853 10.66A2 2 0 0 0 4.885 16h6.23a2 2 0 0 0 1.994-1.84l.853-10.66h.538a.5.5 0 0 0 0-1h-.995a.59.59 0 0 0-.01 0H11Zm1.958 1-.846 10.58a1 1 0 0 1-.997.92h-6.23a1 1 0 0 1-.997-.92L3.042 3.5h9.916Zm-7.487 1a.5.5 0 0 1 .528.47l.5 8.5a.5.5 0 0 1-.998.06L5 5.03a.5.5 0 0 1 .47-.53Zm5.058 0a.5.5 0 0 1 .47.53l-.5 8.5a.5.5 0 1 1-.998-.06l.5-8.5a.5.5 0 0 1 .528-.47ZM8 4.5a.5.5 0 0 1 .5.5v8.5a.5.5 0 0 1-1 0V5a.5.5 0 0 1 .5-.5Z" />
-                                        </svg>
-                                    </button>
-                                </div>
-
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-
-        </form>
-
-
+            </form>
+        </div>
     </div>
 
 
@@ -123,182 +112,92 @@
     <h2 class="m-0">Draggable Containers.</h2>
     <div class="modul-header-border"> </div>
 
-    <div class="row mt-2" style="margin: 0;">
-        <div class=" pt-3 pb-2">
+    <div class="row mt-2 p-0" style="margin: 0;">
 
-            <div cdkDropListGroup class="row " style="margin: 0;">
+        <div cdkDropListGroup class="row p-0" style="margin: 0;">
 
-                <div class="px-3 col-lg-6 mt-3">
-                    <div class="list-container mat-elevation-z8 " style="padding: 0; margin: 0;">
-                        <div class="pt-2 cardHeader">
-                            <span class="ps-3  cardTitle"> Order № : 2301-0001</span>
+            <div class=" col-lg-6 mt-3">
+                <div class="list-container mat-elevation-z8 " style="padding: 0; margin: 0;">
+                    <div class="pt-2 cardHeader">
+                        <span class="ps-3  cardTitle"> Order № : 2301-0001</span>
 
-                            <div class="row mt-3" style="margin: 0">
-                                <div class="field col-lg-4">
-                                    <input type="text" [(ngModel)]="filterValue" (keyup)="applyFilter($event)" #input
-                                        id="search" name="search" />
-                                    <label for="search" title="Search" data-title="Search"></label>
-                                </div>
-
-                                <div class="col-lg-4 select">
-                                    <div class="field">
-                                        <label for="statusId" title="Status" data-title="Status"></label>
-                                        <mat-form-field class=" col-lg-12">
-                                            <mat-select [(ngModel)]="statusId" id="statusId" name="statusId">
-                                                <mat-option (click)="applyFilterStatus(1)" [value]="status.key"
-                                                    *ngFor="let status of statuses">
-                                                    <div class="statusColor me-1" [style.background-color]="status.key">
-                                                    </div> {{status.value }}
-                                                </mat-option>
-                                            </mat-select>
-                                        </mat-form-field>
-                                    </div>
-                                </div>
-
-                                <div class="field col-lg-4">
-                                    <label for="date" title="Date" data-title="Date"></label>
-                                    <input [(ngModel)]="date" (change)="handleFilter(1)" type="date" name="date"
-                                        id="date">
-                                </div>
-
+                        <div class="row mt-3" style="margin: 0">
+                            <div class="field col-lg-4">
+                                <input type="text" [(ngModel)]="filterValue" (keyup)="applyFilter($event)" #input
+                                    id="search" name="search" />
+                                <label for="search" title="Search" data-title="Search"></label>
                             </div>
 
-                            <div class="row col-lg-12 " style="margin: 0;">
-                                <div class="col-lg-1 ">
-                                    <span class="" style="color: darkorange; font-weight: bolder;">#</span>
-                                </div>
-
-                                <div class="col-lg-2">
-                                    <span style="color: darkorange; font-weight: bolder;">Overhead </span>
-                                </div>
-
-                                <div class="col-lg-2">
-                                    <span style="color: darkorange; font-weight: bolder;">Wagon № </span>
-                                </div>
-
-                                <div class="col-lg-3 text-center">
-                                    <span style="color: darkorange; font-weight: bolder;"> Date</span>
-
-                                </div>
-
-                                <div class="col-lg-3 ">
-                                    <span class="ms-2" style="color: darkorange; font-weight: bolder;">Status</span>
+                            <div class="col-lg-4 select">
+                                <div class="field">
+                                    <label for="statusId" title="Status" data-title="Status"></label>
+                                    <mat-form-field class=" col-lg-12">
+                                        <mat-select [(ngModel)]="statusId" id="statusId" name="statusId">
+                                            <mat-option (click)="applyFilterStatus(1)" [value]="status.key"
+                                                *ngFor="let status of statuses">
+                                                <div class="statusColor me-1" [style.background-color]="status.key">
+                                                </div> {{status.value }}
+                                            </mat-option>
+                                        </mat-select>
+                                    </mat-form-field>
                                 </div>
                             </div>
+
+                            <div class="field col-lg-4">
+                                <label for="date" title="Date" data-title="Date"></label>
+                                <input [(ngModel)]="date" (change)="handleFilter(1)" type="date" name="date" id="date">
+                            </div>
+
                         </div>
 
-                        <div cdkDropList [cdkDropListData]="todo" class="example-list"
-                            (cdkDropListDropped)="dropContainer($event)">
-                            <div class="example-box" *ngFor="let item of todo; let i = index" cdkDrag>
+                        <div class="row col-lg-12 " style="margin: 0;">
+                            <div class="col-lg-1 ">
+                                <span class="" style="color: darkorange; font-weight: bolder;">#</span>
+                            </div>
 
-                                <div class="row col-lg-12" style="margin: 0;">
-                                    <div class="col-lg-1">
-                                        <span class="">{{i+1}}.</span>
-                                    </div>
+                            <div class="col-lg-2">
+                                <span style="color: darkorange; font-weight: bolder;">Overhead </span>
+                            </div>
 
-                                    <div class="col-lg-2">
-                                        {{item.overhead}}
-                                    </div>
+                            <div class="col-lg-2">
+                                <span style="color: darkorange; font-weight: bolder;">Wagon № </span>
+                            </div>
 
-                                    <div class="col-lg-2">
-                                        {{item.wagon}}
-                                    </div>
+                            <div class="col-lg-3 text-center">
+                                <span style="color: darkorange; font-weight: bolder;"> Date</span>
 
-                                    <div class="col-lg-3 text-center">
-                                        {{item.date}}
-                                    </div>
+                            </div>
 
-                                    <div class="col-lg-3">
-                                        <div class="statusColor ms-2 " style="width: 0.5rem; height: 0.5rem;"
-                                            [style.background-color]="item.status"></div> {{item.statusText}}
-                                    </div>
-                                </div>
+                            <div class="col-lg-3 ">
+                                <span class="ms-2" style="color: darkorange; font-weight: bolder;">Status</span>
                             </div>
                         </div>
                     </div>
-                </div>
 
-                <div class="px-3 col-lg-6 mt-3">
-                    <div class="list-container mat-elevation-z8 " style="padding: 0;margin: 0;">
-                        <div class="pt-2 cardHeader">
-                            <span class="ps-3 cardTitle"> Order № : 2301-0002</span>
+                    <div cdkDropList [cdkDropListData]="todo" class="example-list"
+                        (cdkDropListDropped)="dropContainer($event)">
+                        <div class="example-box" *ngFor="let item of todo; let i = index" cdkDrag>
 
-                            <div class="row mt-3" style="margin: 0;">
-                                <div class="field col-lg-4 ">
-                                    <input type="text" [(ngModel)]="filterValueSecond"
-                                        (keyup)="applyFilterSecond($event)" #input id="search" name="search" />
-                                    <label for="search" title="Search" data-title="Search"></label>
-                                </div>
-                                <div class="col-lg-4 select">
-                                    <div class="field">
-                                        <label for="statusIdSecond" title="Status" data-title="Status"></label>
-                                        <mat-form-field class=" col-lg-12">
-                                            <mat-select [(ngModel)]="statusIdSecond" id="statusIdSecond"
-                                                name="statusIdSecond">
-                                                <mat-option (click)="applyFilterStatus(2)" [value]="status.key"
-                                                    *ngFor="let status of statuses">
-                                                    <div class="statusColor me-1" [style.background-color]="status.key">
-                                                    </div> {{status.value }}
-                                                </mat-option>
-                                            </mat-select>
-                                        </mat-form-field>
-                                    </div>
-                                </div>
-                                <div class="field col-lg-4">
-                                    <label for="date" title="Date" data-title="Date"></label>
-                                    <input [(ngModel)]="dateSecond" (change)="handleFilter(2)" type="date" name="date"
-                                        id="date">
-                                </div>
-                            </div>
-
-                            <div class="row col-lg-12 " style="margin: 0;">
-                                <div class="col-lg-1 ">
-                                    <span class="" style="color: darkorange; font-weight: bolder;">#</span>
+                            <div class="row col-lg-12" style="margin: 0;">
+                                <div class="col-lg-1">
+                                    <span class="">{{i+1}}.</span>
                                 </div>
 
                                 <div class="col-lg-2">
-                                    <span style="color: darkorange; font-weight: bolder;">Overhead </span>
+                                    {{item.overhead}}
                                 </div>
 
                                 <div class="col-lg-2">
-                                    <span style="color: darkorange; font-weight: bolder;">Wagon № </span>
+                                    {{item.wagon}}
                                 </div>
 
                                 <div class="col-lg-3 text-center">
-                                    <span style="color: darkorange; font-weight: bolder;"> Date</span>
+                                    {{item.date}}
                                 </div>
 
                                 <div class="col-lg-3">
-                                    <span class="ms-2" style="color: darkorange; font-weight: bolder;">Status</span>
-                                </div>
-                            </div>
-                        </div>
-
-                        <div cdkDropList [cdkDropListData]="doneContainer" class="example-list"
-                            (cdkDropListDropped)="dropContainer($event)">
-                            <div class="example-box" *ngFor="let item of doneContainer; let j = index" cdkDrag>
-                                <div class="row col-lg-12" style="margin: 0;">
-                                    <div class="col-lg-1">
-                                        <span class="">{{j+1}}.</span>
-                                    </div>
-                                    <div class="col-lg-2">
-                                        {{item.overhead}}
-                                    </div>
-
-                                    <div class="col-lg-2">
-                                        {{item.wagon}}
-                                    </div>
-
-                                    <div class="col-lg-3 text-center">
-
-                                        {{item.date}}
-                                    </div>
-
-                                    <div class="col-lg-3">
-                                        <div class="statusColor ms-2 " style="width: 0.5rem; height: 0.5rem;"
-                                            [style.background-color]="item.status"></div> {{item.statusText}}
-                                    </div>
-
+                                    <div class="statusColor ms-2 " style="width: 0.5rem; height: 0.5rem;"
+                                        [style.background-color]="item.status"></div> {{item.statusText}}
                                 </div>
                             </div>
                         </div>
@@ -306,6 +205,93 @@
                 </div>
             </div>
 
+            <div class=" col-lg-6 mt-3">
+                <div class="list-container mat-elevation-z8 " style="padding: 0;margin: 0;">
+                    <div class="pt-2 cardHeader">
+                        <span class="ps-3 cardTitle"> Order № : 2301-0002</span>
+
+                        <div class="row mt-3" style="margin: 0;">
+                            <div class="field col-lg-4 ">
+                                <input type="text" [(ngModel)]="filterValueSecond" (keyup)="applyFilterSecond($event)"
+                                    #input id="search" name="search" />
+                                <label for="search" title="Search" data-title="Search"></label>
+                            </div>
+                            <div class="col-lg-4 select">
+                                <div class="field">
+                                    <label for="statusIdSecond" title="Status" data-title="Status"></label>
+                                    <mat-form-field class=" col-lg-12">
+                                        <mat-select [(ngModel)]="statusIdSecond" id="statusIdSecond"
+                                            name="statusIdSecond">
+                                            <mat-option (click)="applyFilterStatus(2)" [value]="status.key"
+                                                *ngFor="let status of statuses">
+                                                <div class="statusColor me-1" [style.background-color]="status.key">
+                                                </div> {{status.value }}
+                                            </mat-option>
+                                        </mat-select>
+                                    </mat-form-field>
+                                </div>
+                            </div>
+                            <div class="field col-lg-4">
+                                <label for="date" title="Date" data-title="Date"></label>
+                                <input [(ngModel)]="dateSecond" (change)="handleFilter(2)" type="date" name="date"
+                                    id="date">
+                            </div>
+                        </div>
+
+                        <div class="row col-lg-12 " style="margin: 0;">
+                            <div class="col-lg-1 ">
+                                <span class="" style="color: darkorange; font-weight: bolder;">#</span>
+                            </div>
+
+                            <div class="col-lg-2">
+                                <span style="color: darkorange; font-weight: bolder;">Overhead </span>
+                            </div>
+
+                            <div class="col-lg-2">
+                                <span style="color: darkorange; font-weight: bolder;">Wagon № </span>
+                            </div>
+
+                            <div class="col-lg-3 text-center">
+                                <span style="color: darkorange; font-weight: bolder;"> Date</span>
+                            </div>
+
+                            <div class="col-lg-3">
+                                <span class="ms-2" style="color: darkorange; font-weight: bolder;">Status</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div cdkDropList [cdkDropListData]="doneContainer" class="example-list"
+                        (cdkDropListDropped)="dropContainer($event)">
+                        <div class="example-box" *ngFor="let item of doneContainer; let j = index" cdkDrag>
+                            <div class="row col-lg-12" style="margin: 0;">
+                                <div class="col-lg-1">
+                                    <span class="">{{j+1}}.</span>
+                                </div>
+                                <div class="col-lg-2">
+                                    {{item.overhead}}
+                                </div>
+
+                                <div class="col-lg-2">
+                                    {{item.wagon}}
+                                </div>
+
+                                <div class="col-lg-3 text-center">
+
+                                    {{item.date}}
+                                </div>
+
+                                <div class="col-lg-3">
+                                    <div class="statusColor ms-2 " style="width: 0.5rem; height: 0.5rem;"
+                                        [style.background-color]="item.status"></div> {{item.statusText}}
+                                </div>
+
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
         </div>
+
     </div>
 </div>

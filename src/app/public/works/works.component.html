@@ -1,4 +1,4 @@
-<div class="cardAnimations pt-3">
+<div class="cardAnimations py-3">
     <div class=" ps-4">
         <h2 class="text-start mt-3 col-lg-12 m-0 modul-headers">
             Projects
@@ -10,15 +10,14 @@
         <div class="col-lg-4 mt-3" *ngFor="let card of projects" >
             <div *ngIf="card.link" class="pb-3 px-2 mat-elevation-z8 cards" [routerLink]="[card.link]" [style.Color]="card.color">
                 <div class="card-pattern" [style.background-color]="card.color"></div>
-                <img [src]="card.url" style="width: 90px; height: 80px;" alt="" class="mt-4 card-img">
+                <img [src]="card.url" style="width: 90px; height: 80px;" alt="" class="mt-4 ms-2 card-img">
                 <h3 class="mt-2">{{card.title}}</h3>
             </div>
             <a *ngIf="card.hiperLink" [href]="card.hiperLink" target="_blank" class="pb-3 px-2 d-block mat-elevation-z8 cards" [style.Color]="card.color">
                 <div class="card-pattern" [style.background-color]="card.color"></div>
-                <img [src]="card.url" style="width: 90px; height: 80px;" alt="" class="mt-4 card-img">
+                <img [src]="card.url" style="width: 90px; height: 80px;" alt="" class="mt-4 ms-2 card-img">
                 <h3 class="mt-2">{{card.title}}</h3>
             </a>
         </div>
-       
     </div>
 </div>

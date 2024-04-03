@@ -49,6 +49,7 @@ import { MatSortHeader, MatSortModule } from '@angular/material/sort';
 import { NgxCaptchaModule } from '@binssoft/ngx-captcha';
 import { NgxSlickJsModule } from 'ngx-slickjs';
 import {CdkMenuModule} from '@angular/cdk/menu';
+import { ExperienceComponent } from './experience/experience.component';
 
 
 @NgModule({
@@ -68,6 +69,7 @@ import {CdkMenuModule} from '@angular/cdk/menu';
         AboutComponent,
         ContractComponent,
         HomeComponent,
+        ExperienceComponent,
 
     ],
     imports: [

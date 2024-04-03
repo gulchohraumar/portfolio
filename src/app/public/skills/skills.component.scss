@@ -272,16 +272,15 @@ body {
     0 24px 46px var(--box-shadow-color);
 }
 
-.card:hover .overlay {
+.card  .overlay {
   transform: scale(4) translateZ(0);
 }
 
 .card:hover .card-pattern {
   background-color: #888888 !important;
-
 }
 
-.card:hover .circle {
+.card .circle {
   border-color: #fbfbfb;
   background: var(--bg-color);
 }
@@ -354,7 +353,7 @@ body {
   position: absolute;
   height: 118px;
   border-radius: 50%;
-  background: var(--bg-color);
+  // background: var(--bg-color);
   top: -3px;
   margin: auto;
   bottom: 0;

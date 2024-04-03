@@ -18,6 +18,7 @@ import { DraggableComponent } from './public/works/draggable/draggable.component
 import { AdminLoginComponent } from './admin/admin-login/admin-login.component';
 import { AdminComponent } from './admin/admin.component';
 import { NotificationsComponent } from './admin/notifications/notifications.component';
+import { ExperienceComponent } from './public/experience/experience.component';
 
 const routes: Routes = [
   { path: '', redirectTo: 'home/about', pathMatch: 'full' },
@@ -33,6 +34,7 @@ const routes: Routes = [
         children: [
           { path: 'about', component: AboutComponent },
           { path: 'skills', component: SkillsComponent },
+          { path: 'experience', component: ExperienceComponent, },
           { path: 'works', component: WorksComponent, },
           { path: 'contact', component: ContractComponent, },
         ]

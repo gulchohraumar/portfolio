@@ -1,25 +1,31 @@
 <div class="common-container row col-lg-12" style="margin: 0 auto;">
-  <div class=" container-item-links ps-0 col-md-1 text-center">
-    <ul class="row ps-0 py-3 list-container mt-5 justify-content-start">
-      <li class="list-items px-1" routerLinkActive="router-link-active" [routerLink]="'about'">
+  <div class=" container-item-links col-md-2 text-center" style="max-width: 14%;">
+    <ul class="row ps-0 flex-column py-3 list-container mt-5 justify-content-start">
+      <li class="list-items px-2" routerLinkActive="router-link-active" [routerLink]="'about'">
         <p class="text-start ps-1">
           <i class="fa-regular fa-address-card me-1"></i>
           About
         </p>
       </li>
-      <li class="list-items px-1" routerLinkActive="router-link-active" [routerLink]="'skills'">
+      <li class="list-items px-2" routerLinkActive="router-link-active" [routerLink]="'skills'">
         <p class="text-start ps-1">
           <i class="fa-regular fa-wand-magic-sparkles me-1"></i>
           Skills
         </p>
       </li>
-      <li class="list-items px-1" routerLinkActive="router-link-active" [routerLink]="'works'">
+      <li class="list-items px-2" routerLinkActive="router-link-active" [routerLink]="'experience'">
+        <p class="text-start ps-1">
+          <i class="fa-solid fa-handshake me-1"></i>
+          Experience
+        </p>
+      </li>
+      <li class="list-items px-2" routerLinkActive="router-link-active" [routerLink]="'works'">
         <p class="text-start ps-1">
           <i class="fa-regular fa-diagram-project me-1"></i>
           Projects
         </p>
       </li>
-      <li class="list-items px-1" routerLinkActive="router-link-active" [routerLink]="'contact'">
+      <li class="list-items px-2" routerLinkActive="router-link-active" [routerLink]="'contact'">
         <p class="text-start ps-1">
           <i class="fa-regular fa-address-book me-1"></i>
           Contact
@@ -72,7 +78,7 @@
     </p>
   </div>
 
-  <div class="mt-2 col-md-8 container-item2 p-0 text-center  ">
+  <div class="mt-2 col-md-7 container-item2 p-0 text-center  ">
     <router-outlet></router-outlet>
   </div>
 

@@ -80,9 +80,7 @@ export class WorksComponent implements OnInit {
     },
   ];
 
-  constructor(){
-
-  }
+  constructor(){ }
 
   ngOnInit(){
 

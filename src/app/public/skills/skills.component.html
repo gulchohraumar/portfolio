@@ -1,144 +1,31 @@
 <div class="cardAnimations ">
   <div class="row py-4" style="margin: 0;">
-    <div class=" ps-4"> 
+    <div class=" ps-4">
       <h2 class="text-start mt-2 col-lg-12 m-0 modul-headers">
         Skills
       </h2>
       <div class="modul-header-border"> </div>
     </div>
 
-    <!-- <div class="row mt-2 about-con" *ngFor="let item of skills">
-            <h4 style="font-weight: 500; margin: 0;"> <img [src]="item.url" width="17" alt=""> {{item.name}} ( <span
-                    style="color: darkorange;">{{item.percent}}</span> )</h4>
-            <ol class="progress-bar ms-3 mt-2">
-                <li *ngFor="let points of item.point; let i = index"
-                    [ngClass]="{'is-complete ': (points.isActive == true && i != (item.countActive -1)) , 'is-active': i == (item.countActive -1)}">
-                    <span></span>
-                </li>
-            </ol>
-        </div> -->
-
-    <div class="row " style="margin: 0;">
-      <!-- <div class="mt-4 cards col-lg-4 " data-aos="fade-up" *ngFor="let card of skills; let i=index"
-        [@cardFlip]="card.stateName">
-        <div class="face back col-lg-11 ">
-          <div class="text-end mt-2 col-lg-12" style="padding: 0 10px;">
-            <svg (click)="cardClicked(i)" [style.color]="card.color" style="cursor: pointer;"
-              xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="currentColor"
-              class="bi bi-info-circle-fill  ms-2" viewBox="0 0 16 16">
-              <path
-                d="M8 16A8 8 0 1 0 8 0a8 8 0 0 0 0 16zm.93-9.412-1 4.705c-.07.34.029.533.304.533.194 0 .487-.07.686-.246l-.088.416c-.287.346-.92.598-1.465.598-.703 0-1.002-.422-.808-1.319l.738-3.468c.064-.293.006-.399-.287-.47l-.451-.081.082-.381 2.29-.287zM8 5.5a1 1 0 1 1 0-2 1 1 0 0 1 0 2z" />
-            </svg>
+    <div class="row mt-3" style="margin: 0;">
+      <div *ngFor="let itemSkill of skills; let i = index" class="row border-gray-400 border-dotted border-b pb-3" [ngClass]="{'mt-4': i != 0}" style="margin: 0;">
+        <div class="row pe-0 text-start">
+          <div class="col-md-2 d-flex align-items-center justify-content-center mt-3">
+            <p class="text-start text-gray-500 font-semibold">
+              {{itemSkill.name}}
+            </p>
           </div>
-
-          <div class=" ms-2 d-flex flex-column col-11" style="cursor: pointer; height: 90px; padding: 0 10px;">
-            <img style="width: 100px;height: 100px; object-fit: contain; margin: 10px auto 0;" [src]="card.url" alt="">
-
-          </div>
-
-          <div class="cardTitle mt-4 col-lg-12 text-white" [style.BackgroundColor]="card.color"> {{card.name}} </div>
-
-        </div>
-
-        <div class="face front col-lg-11 ">
-          <div class="text-end  mt-2 ">
-            <svg (click)="cardClicked(i)" [style.color]="card.color" style="cursor: pointer;"
-              xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="currentColor"
-              class="bi bi-info-circle-fill me-2" viewBox="0 0 16 16">
-              <path
-                d="M8 16A8 8 0 1 0 8 0a8 8 0 0 0 0 16zm.93-9.412-1 4.705c-.07.34.029.533.304.533.194 0 .487-.07.686-.246l-.088.416c-.287.346-.92.598-1.465.598-.703 0-1.002-.422-.808-1.319l.738-3.468c.064-.293.006-.399-.287-.47l-.451-.081.082-.381 2.29-.287zM8 5.5a1 1 0 1 1 0-2 1 1 0 0 1 0 2z" />
-            </svg>
-          </div>
-          <div class="pt-4 ms-2 skill-percent" [style.color]="card.color">
-            {{card.percent}}
-          </div>
-        </div>
-      </div> 
-
-
-      <div class="col-lg-3 mt-3 cardModules" *ngFor="let card of skills; let i=index">
-        <div class="flip" [ngClass]="{'flip-flop': card.state }">
-          <div class="front">
-            <div class="pb-2 px-2 text-center mat-elevation-z8 cardsSkill face" [style.Color]="card.color">
-              <div class="card-pattern" (click)="cardClicked(i)" [style.background-color]="card.color">
-                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-info-lg"
-                  viewBox="0 0 16 16">
-                  <path
-                    d="m9.708 6.075-3.024.379-.108.502.595.108c.387.093.464.232.38.619l-.975 4.577c-.255 1.183.14 1.74 1.067 1.74.72 0 1.554-.332 1.933-.789l.116-.549c-.263.232-.65.325-.905.325-.363 0-.494-.255-.402-.704l1.323-6.208Zm.091-2.755a1.32 1.32 0 1 1-2.64 0 1.32 1.32 0 0 1 2.64 0Z" />
-                </svg>
-              </div>
-              <div class="cardContentFront" >
-                <img  [src]="card.url"  style="max-width: 90px; max-height: 85px; min-height: 75px;" alt=""
-                  class="card-img">
-                <h3 class="mt-1 text-center">{{card.name}}</h3>
-              </div>
-            </div>
-
-          </div>
-          <div class="back">
-            <div class="pb-2 px-2 text-center mat-elevation-z8 cardsSkill face" [style.Color]="card.color">
-              <div class="card-pattern" (click)="cardClicked(i)" [style.background-color]="card.color">
-                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-info-lg"
-                  viewBox="0 0 16 16">
-                  <path
-                    d="m9.708 6.075-3.024.379-.108.502.595.108c.387.093.464.232.38.619l-.975 4.577c-.255 1.183.14 1.74 1.067 1.74.72 0 1.554-.332 1.933-.789l.116-.549c-.263.232-.65.325-.905.325-.363 0-.494-.255-.402-.704l1.323-6.208Zm.091-2.755a1.32 1.32 0 1 1-2.64 0 1.32 1.32 0 0 1 2.64 0Z" />
-                </svg>
-              </div>
-              <div class="cardContentBack" >
-                <p [style.color]="card.color">{{card.percent}}</p>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-
-    -->
-
-      <div class="col-lg-4 mt-3" *ngFor="let card of skills; let i=index">
-        <div class="flip" [ngClass]="{'flip-flop': card.state }">
-          <div class="front">
-            <div class="card education" [style.--bg-color]="card.color">
-              <div class="card-pattern" (click)="cardClicked(i)" [style.background-color]="card.color">
-                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-info-lg"
-                  viewBox="0 0 16 16">
-                  <path
-                    d="m9.708 6.075-3.024.379-.108.502.595.108c.387.093.464.232.38.619l-.975 4.577c-.255 1.183.14 1.74 1.067 1.74.72 0 1.554-.332 1.933-.789l.116-.549c-.263.232-.65.325-.905.325-.363 0-.494-.255-.402-.704l1.323-6.208Zm.091-2.755a1.32 1.32 0 1 1-2.64 0 1.32 1.32 0 0 1 2.64 0Z" />
-                </svg>
-              </div>
-              <div class="overlay"></div>
-              <div class="circle d-flex flex-column" [routerLink]="[card.url]" [style.background-color]="card.color">
-                <img [src]="card.url" alt="">
-                <p style="font-size: 90%; width: 100px;" class="mb-0 mt-2">{{card.name}}</p>
-              </div>
-              <p class="card-title">{{card.value}}</p>
-            </div>
-          </div>
-          <div class="back">
-            <div class="card education" [style.--bg-color]="card.color">
-              <div class="card-pattern" (click)="cardClicked(i)" [style.background-color]="card.color">
-                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-info-lg"
-                  viewBox="0 0 16 16">
-                  <path
-                    d="m9.708 6.075-3.024.379-.108.502.595.108c.387.093.464.232.38.619l-.975 4.577c-.255 1.183.14 1.74 1.067 1.74.72 0 1.554-.332 1.933-.789l.116-.549c-.263.232-.65.325-.905.325-.363 0-.494-.255-.402-.704l1.323-6.208Zm.091-2.755a1.32 1.32 0 1 1-2.64 0 1.32 1.32 0 0 1 2.64 0Z" />
-                </svg>
-              </div>
-              <p class="contentCard pt-5" [style.color]="card.color">
-                {{card.name}}
-                <span class="progress-container mt-2">
-                  <span class="progress-stick" [style.background-color]="card.color" [style.width]="card.percent"
-                    [title]="card.percent">
-                  </span>
-                </span>
+  
+          <div class="col-md-10 row p-0 justify-content-end">
+            <div *ngFor="let item of itemSkill.fields" class="w-fit ps-3 mt-3">
+              <img width="70" style="height: 70px;" class="mx-auto" [src]="item.url" alt="">
+              <p class="text-center font-medium mt-2">
+                {{item.name}}
               </p>
             </div>
           </div>
         </div>
       </div>
-
-
     </div>
-
-
-
   </div>
 </div>
