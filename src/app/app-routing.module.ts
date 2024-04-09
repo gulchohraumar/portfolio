@@ -19,6 +19,7 @@ import { AdminLoginComponent } from './admin/admin-login/admin-login.component';
 import { AdminComponent } from './admin/admin.component';
 import { NotificationsComponent } from './admin/notifications/notifications.component';
 import { ExperienceComponent } from './public/experience/experience.component';
+import { WorkContainerComponent } from './public/works/work-container/work-container.component';
 
 const routes: Routes = [
   { path: '', redirectTo: 'home/about', pathMatch: 'full' },
@@ -41,11 +42,19 @@ const routes: Routes = [
       },
     ]
   },
-  { path: 'tables', component: TablesComponent, },
-  { path: 'cards', component: CardsComponent, },
-  { path: 'illdy', component: IlldyComponent, },
-  { path: 'layouts', component: LayoutsComponent, },
-  { path: 'draggable', component: DraggableComponent, },
+
+  {
+    path: 'works',
+    component: WorkContainerComponent,
+    children: [
+      { path: 'tables', component: TablesComponent, },
+      { path: 'cards', component: CardsComponent, },
+      { path: 'illdy', component: IlldyComponent, },
+      { path: 'layouts', component: LayoutsComponent, },
+      { path: 'draggable', component: DraggableComponent, },
+    ]
+  },
+
   { path: 'layouts/creative-boutigue', component: CreativeBoutigueComponent },
   { path: 'layouts/golden-offer', component: GoldenOfferComponent },
   { path: 'layouts/green-comfort', component: GreenComfortComponent },

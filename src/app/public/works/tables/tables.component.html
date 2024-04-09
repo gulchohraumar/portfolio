@@ -1,8 +1,8 @@
-<div class="row px-5 py-3" style="margin: 0;">
-    <div class=" py-2 mat-elevation-z8">
+<div class="row px-3 py-3" style="margin: 0;">
+    <div class=" py-3 mat-elevation-z8 ">
         <h2>Simple material table with searching and sticky pagination and footer.</h2>
 
-        <div class="line-container">
+        <div class="">
             <div class="col-2 " style="display: flex;">
                 <mat-form-field>
                     <mat-label style="color: rgb(61, 138, 189) ;">Search</mat-label>
@@ -46,7 +46,7 @@
     <div class=" mt-4 py-2  mat-elevation-z8">
         <h2>Material table with searchable header. </h2>
         <form (keydown.enter)="$event.preventDefault()" [formGroup]="filterForm" style="padding: 0;">
-            <div class="mat-elevation-z8">
+            <div class="">
                 <div class=" line-container tabCont smallRow ">
                     <table mat-table [dataSource]="secondDataSource">
                         <ng-container *ngFor="let column of displayedcommontColumns; let j = index"
@@ -249,7 +249,7 @@
     <div class=" mt-4 py-2  mat-elevation-z8">
         <h2>Material table with editable row. </h2>
         <form [formGroup]="anyForm" class="mx-auto">
-            <div class="mat-elevation-z8 line-container">
+            <div class=" line-container">
                 <table mat-table [dataSource]="editableRowTable" formArrayName="lines">
                     <ng-container matColumnDef="qaimeNo">
                         <th mat-header-cell *matHeaderCellDef>Waybill </th>
@@ -471,7 +471,7 @@
         
           </div>
 
-        <div class="row mt-3 mat-elevation-z8 row " style="margin: 0;">
+        <div class="row mt-3 row " style="margin: 0;">
             <div id="htmlData" class="line-container  mx-auto expandableTbale" style="margin: 0; padding: 0;">
                 <form (keydown.enter)="$event.preventDefault()" [formGroup]="filterFormExpandable" class=""
                     style="padding: 0 !important;">
@@ -640,7 +640,6 @@
 
     <div class=" mt-4 py-2 mat-elevation-z8">
         <h2>Excel export table with showing table headers.</h2>
-
         <div class="line-container">
             <div class="col-12 d-flex justify-content-end">
                 <button (click)="handleExportExcelWithHeader()" class="addBtn" style="background-color: #009846;">
@@ -649,11 +648,12 @@
             </div>
 
             <div class="mat-elevation-z8 line-container mt-2 mx-auto">
-                <table id="excelHeaderTable" mat-table [dataSource]="firstDataSource">
-                    <ng-container *ngFor="let column of displayedFirstColumns; let i = index" [matColumnDef]="column">
+                <table id="excelHeaderTable" mat-table [dataSource]="excelHeaders">
+                    <ng-container *ngFor="let column of displayedColumns.columnsTranslates; let i = index" [matColumnDef]="column">
                         <th mat-header-cell *matHeaderCellDef>{{column}}</th>
                         <td mat-cell *matCellDef="let element; let rowIndex = index" class="hower-td">
-                            {{element[column.replace(' ', '')]}}</td>
+                            {{element[displayedColumns.columns[i].replace(' ', '')]}}
+                        </td>
                         <td mat-footer-cell *matFooterCellDef>
                             <div *ngIf="i==5">
                                 {{22}}
@@ -661,14 +661,14 @@
                         </td>
                     </ng-container>
 
-                    <tr mat-header-row *matHeaderRowDef="displayedFirstColumns; sticky: true"></tr>
+                    <tr mat-header-row *matHeaderRowDef="displayedColumns.columnsTranslates; sticky: true"></tr>
                     <tr *matNoDataRow>
                         <th colspan="9" style="text-align: center;">
                             <span>No rows found</span>
                         </th>
                     </tr>
-                    <tr mat-footer-row *matFooterRowDef="displayedFirstColumns; sticky: true"></tr>
-                    <tr mat-row *matRowDef="let row; columns: displayedFirstColumns;" class="route"
+                    <tr mat-footer-row *matFooterRowDef="displayedColumns.columnsTranslates; sticky: true"></tr>
+                    <tr mat-row *matRowDef="let row; columns: displayedColumns.columnsTranslates;" class="route"
                         (click)="highlight($event)">
                     </tr>
                 </table>

@@ -919,6 +919,41 @@ input::-webkit-inner-spin-button {
   .cardAnimations {
     border-radius: 8px;
   }
+
+  .list-container {
+    flex-direction: row !important;
+  }
+
+  .list-container li {
+    width: auto !important;
+    padding: 0 20px;
+  }
+
+  .container-item-links {
+    padding: 0 !important;
+  }
+}
+
+@media only screen and (min-width: 992px) {
+  .container-item-links {
+    max-width: 14%;
+  }
+}
+
+@media only screen and (max-width: 768px) {
+  .skillFields {
+    justify-content: start !important;
+  }
+
+  .itemSkillName {
+    padding: 0;
+  }
+
+  .itemSkillNameCon {
+    margin-right: 1.5rem !important;
+    margin-left: 1.5rem !important;
+  }
+
 }
 
 th.mat-header-cell,
@@ -1010,7 +1045,7 @@ td.mat-footer-cell {
   font-weight: 700 !important;
 }
 
-.about-headers{
+.about-headers {
   color: #f39d35;
 }
 
@@ -1024,7 +1059,7 @@ h2 {
   font-size: 24px;
 }
 
-.cards{
+.cards {
   border-radius: 10px;
   position: relative;
   overflow: hidden;
@@ -1039,13 +1074,13 @@ h2 {
 // transform: scale(1.04);
 // }
 
-.cards h3{
+.cards h3 {
   margin: 0;
   font-weight: 600;
   font-size: 17px;
 }
 
-.card-pattern{
+.card-pattern {
   position: absolute;
   width: 40px;
   height: 40px;
@@ -1054,7 +1089,7 @@ h2 {
   right: -11px;
 }
 
-.card-img path{
+.card-img path {
   fill: red;
   color: red;
 }

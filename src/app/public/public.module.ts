@@ -50,6 +50,7 @@ import { NgxCaptchaModule } from '@binssoft/ngx-captcha';
 import { NgxSlickJsModule } from 'ngx-slickjs';
 import {CdkMenuModule} from '@angular/cdk/menu';
 import { ExperienceComponent } from './experience/experience.component';
+import { WorkContainerComponent } from './works/work-container/work-container.component';
 
 
 @NgModule({
@@ -70,6 +71,7 @@ import { ExperienceComponent } from './experience/experience.component';
         ContractComponent,
         HomeComponent,
         ExperienceComponent,
+        WorkContainerComponent,
 
     ],
     imports: [

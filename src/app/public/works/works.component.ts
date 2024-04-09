@@ -11,28 +11,28 @@ export class WorksComponent implements OnInit {
       url: '../../../assets/projects/table.webp',
       color: 'cornflowerblue',
       title: 'Multifunctional table', 
-      link: '../../tables',
+      link: '../../works/tables',
       hiperLink: ''
     },
     {
       url: '../../../assets/projects/cards.webp',
       color: 'darkorange',
       title: 'Cards ui',
-      link: '../../cards',
+      link: '../../works/cards',
       hiperLink: ''
     },
     {
       url: '../../../assets/projects/illdy.png',
       color: '#9fcb42',
       title: 'Illdy prototype',
-      link: '../../illdy',
+      link: '../../works/illdy',
       hiperLink: ''
     },
     {
       url: '../../../assets/projects/draggable.png',
       color: 'rgb(250 208 44)',
       title: 'Draggable elements',
-      link: '../../draggable',
+      link: '../../works/draggable',
       hiperLink: ''
     },
 
@@ -43,13 +43,13 @@ export class WorksComponent implements OnInit {
       link: '',
       hiperLink: 'https://inquisitive-yeot-fd19d4.netlify.app/'
     },
-    {
-      url: '../../../assets/projects/layout.png',
-      color: '#8d8ae6',
-      title: '"Illdy" layout',
-      link: '',
-      hiperLink: 'https://thriving-youtiao-4b75d8.netlify.app/'
-    },
+    // {
+    //   url: '../../../assets/projects/layout.png',
+    //   color: '#8d8ae6',
+    //   title: '"Illdy" layout',
+    //   link: '',
+    //   hiperLink: 'https://thriving-youtiao-4b75d8.netlify.app/'
+    // },
     {
       url: '../../../assets/projects/watchFilm.png',
       color: '#e2905a',

@@ -236,6 +236,7 @@ export class TablesComponent implements OnInit {
   ) { }
 
   firstDataSource: MatTableDataSource<any> = new MatTableDataSource<any>([]);
+  excelHeaders: MatTableDataSource<any> = new MatTableDataSource<any>([]);
   @ViewChild('firstPag') firstPaginator!: MatPaginator;
 
   displayedFirstDataColumns: string[] = [];
@@ -263,10 +264,40 @@ export class TablesComponent implements OnInit {
     'Note',
 
   ];
+
+  displayedColumns = {
+    columns: [
+      'orderNo',
+      'opNo',
+      'clientName',
+      'transportationType',
+      'wagonNo',
+      'containerNo',
+      'overhead',
+      'consignor',
+      'consignee',
+      'checkoutDate',
+      'deliveryDate',
+    ],
+    columnsTranslates: [
+      'Sifariş №',
+      'Əməliyyat №',
+      'Müştəri',
+      'Daşıma vasitəsi',
+      'Vaqon №',
+      'Konyteyner №',
+      'Qaimə №',
+      'Yük göndərən',
+      'Yük alan',
+      'Çıxma tarixi',
+      'Çatma tarixi'
+    ]
+  };
+
   sum = 0;
   secondDataSource: MatTableDataSource<any> = new MatTableDataSource<any>([]);
   secondInitialDataSource: MatTableDataSource<any> = new MatTableDataSource<any>([]);
-  
+
   @ViewChild('commonPag') commonPaginator!: MatPaginator;
   orderRequestData: any = {
     filters: []
@@ -316,8 +347,8 @@ export class TablesComponent implements OnInit {
   ];
   excelDataSource: MatTableDataSource<any> = new MatTableDataSource<any>([]);
   @ViewChild('excelTablePag') excelTablePag!: MatPaginator;
-  fileName?= '';
-  excelFileName?= '';
+  fileName? = '';
+  excelFileName? = '';
   file?: File;
   excelFile?: File;
   excelData: any;
@@ -347,7 +378,7 @@ export class TablesComponent implements OnInit {
     })
   }
 
-  filltable(){
+  filltable() {
     this.dataInputTable = [
       {
         contPrefix: "ADYU",
@@ -432,7 +463,7 @@ export class TablesComponent implements OnInit {
   }
   addLinesValue(frmArr: any) {
     this.lines.push(frmArr);
-  }  
+  }
 
 
   //expandable table
@@ -449,7 +480,7 @@ export class TablesComponent implements OnInit {
 
   initialColumnsToDisplayWithExpand: any[] = [];
   expandedElementExpandable!: PeriodicElement | null;
- 
+
   filterFormExpandable!: FormGroup;
   orderRequestDataExpandable: any = {
     filters: []
@@ -483,7 +514,24 @@ export class TablesComponent implements OnInit {
     this.generateFormEditableRow();
     this.filltable();
     this.generateFormInputTable();
-    
+
+    this.excelHeaders = new MatTableDataSource<any>([
+      {
+
+        orderNo: '2023-03223',
+        opNo: '2',
+        clientName: 'ABSHERON mmc',
+        transportationType: 'Vaqon',
+        wagonNo: '132323',
+        containerNo: '',
+        overhead: '2342423',
+        consignor: 'azerbaijan',
+        consignee: 'turkey',
+        checkoutDate: '2023-02-13',
+        deliveryDate: '2024-03-23',
+      },
+    ])
+
 
     this.firstDataSource = new MatTableDataSource<any>([
       {
@@ -664,8 +712,8 @@ export class TablesComponent implements OnInit {
     this.secondDataSource.paginator = this.commonPaginator;
     this.dataSourceExpandable.sort = this.sort;
   }
-  
-// SECOND TABLE CODES
+
+  // SECOND TABLE CODES
   highlight(event: any) {
     [...event.target.parentElement.parentElement.children].forEach(e => {
       if (e !== event.target.parentElement) {
@@ -757,7 +805,7 @@ export class TablesComponent implements OnInit {
     }
   }
 
-// EXCEL TABLE CODES
+  // EXCEL TABLE CODES
   deleteExcelTableLine(index: number) {
     this.excelDataSource.data.splice(index, 1);
     this.excelDataSource.paginator = this.excelTablePag;
@@ -835,7 +883,7 @@ export class TablesComponent implements OnInit {
     this.displayUpdateBtn = -1;
   }
 
-  saveLine(id: number){
+  saveLine(id: number) {
     this.editableRowTable = new MatTableDataSource<any>(this.lines.value);
     this.onOpenBtns(id);
     this.openUpdateBtn = false;
@@ -865,7 +913,7 @@ export class TablesComponent implements OnInit {
 
   //EXPANDABLE TABLE
   toggleRow(row: any, indexRow: any) {
-    if (indexRow == 0) { 
+    if (indexRow == 0) {
       this.dataSourceExpandable.data[0].dataSourceRow = ELEMENT_DATANormal;
     }
     else if (indexRow == 1) {
@@ -928,7 +976,7 @@ export class TablesComponent implements OnInit {
       filters.forEach((element: any) => {
         dataArr = this.initialDataSourceExpandable.data.filter((dt: any) => {
 
-          if (element.key == 'date') { 
+          if (element.key == 'date') {
             let dArr = element.value.split("-");
             // let dArr2 = dt[element.key].split("-"); 
             if (dt[element.key] == dArr[1] + "-" + dArr[2] + "-" + dArr[0]) return dt
@@ -962,11 +1010,11 @@ export class TablesComponent implements OnInit {
 
 
   openPopup(element: any) {
-  
+
   }
 
   openColumns() {
-   
+
   }
 
   removeFilter() {
@@ -1079,33 +1127,23 @@ export class TablesComponent implements OnInit {
 
     this.generateFormExpandable();
     this.calculateTotalsExpandable();
-
   }
-
-
-  //Excel export table with showing table headers
-  getFileName = (name: string) => {
-    let sheetName = name || "HeaderExcel";
-    let fileName = `${sheetName}`;
-    return {
-      sheetName,
-      fileName
-    };
-  };
-
 
   exportTableToExcel(tableId: string, name?: any) {
-    let { sheetName, fileName } = this.getFileName(name);
     let targetTableElm = document.getElementById(tableId);
-    let wb = XLSX.utils.table_to_book(targetTableElm, <XLSX.Table2SheetOpts>{
-      sheet: sheetName
-    });
-    XLSX.writeFile(wb, `${fileName}.xlsx`);
+    // let wb = XLSX.utils.table_to_book(targetTableElm, <XLSX.Table2SheetOpts>{
+    //   sheet: 'sheetName'
+    // });
+    // XLSX.writeFile(wb, `excel.xlsx`);
+
+    const ws: XLSX.WorkSheet=XLSX.utils.table_to_sheet(targetTableElm);//converts a DOM TABLE element to a worksheet
+    const wb: XLSX.WorkBook = XLSX.utils.book_new();
+    XLSX.utils.book_append_sheet(wb, ws, 'Sheet1');
+
+    XLSX.writeFile(wb, 'SheetJS.xlsx');
   }
 
-  handleExportExcelWithHeader(){
+  handleExportExcelWithHeader() {
     this.exportTableToExcel('excelHeaderTable', 'Header excel')
   }
-  
-
 }
