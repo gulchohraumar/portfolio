@@ -51,6 +51,7 @@ import { NgxSlickJsModule } from 'ngx-slickjs';
 import {CdkMenuModule} from '@angular/cdk/menu';
 import { ExperienceComponent } from './experience/experience.component';
 import { WorkContainerComponent } from './works/work-container/work-container.component';
+import { ParallaxBgComponent } from './works/parallax-bg/parallax-bg.component';
 
 
 @NgModule({
@@ -72,6 +73,7 @@ import { WorkContainerComponent } from './works/work-container/work-container.co
         HomeComponent,
         ExperienceComponent,
         WorkContainerComponent,
+        ParallaxBgComponent,
 
     ],
     imports: [

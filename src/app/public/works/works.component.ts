@@ -35,6 +35,13 @@ export class WorksComponent implements OnInit {
       link: '../../works/draggable',
       hiperLink: ''
     },
+    {
+      url: '../../../assets/projects/parallax.png',
+      color: 'rgb(168 216 177)',
+      title: 'Parallax backgrounds',
+      link: '../../works/parallax-background',
+      hiperLink: ''
+    },
 
     {
       url: '../../../assets/projects/dazko.svg',

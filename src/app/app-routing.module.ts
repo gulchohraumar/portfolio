@@ -20,6 +20,7 @@ import { AdminComponent } from './admin/admin.component';
 import { NotificationsComponent } from './admin/notifications/notifications.component';
 import { ExperienceComponent } from './public/experience/experience.component';
 import { WorkContainerComponent } from './public/works/work-container/work-container.component';
+import { ParallaxBgComponent } from './public/works/parallax-bg/parallax-bg.component';
 
 const routes: Routes = [
   { path: '', redirectTo: 'home/about', pathMatch: 'full' },
@@ -52,6 +53,7 @@ const routes: Routes = [
       { path: 'illdy', component: IlldyComponent, },
       { path: 'layouts', component: LayoutsComponent, },
       { path: 'draggable', component: DraggableComponent, },
+      { path: 'parallax-background', component: ParallaxBgComponent, },
     ]
   },
 
