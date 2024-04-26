@@ -619,7 +619,51 @@ export class TablesComponent implements OnInit {
     this.firstDataSource.paginator = this.firstPaginator;
 
 
-    this.secondInitialDataSource = this.secondDataSource = new MatTableDataSource<any>([
+    this.secondInitialDataSource  = new MatTableDataSource<any>([
+      {
+        No: '1',
+        Firm: 'Alliance',
+        Department: 'Back-end',
+        Client: 'Rashid LLC',
+        Total: '23',
+        Currency: 'USD',
+        Contract: 'test 2',
+        Note: 'Lorem ipsum.',
+      },
+      {
+        No: '2',
+        Firm: 'Absheron Express',
+        Department: 'Front-end',
+        Client: 'Gulchohra LLC',
+        Total: '12',
+        Currency: 'USD',
+        Contract: 'test',
+        Note: 'Lorem ipsum.',
+      },
+      {
+        No: '3',
+        Firm: 'Sara Logistics',
+        Department: 'Back-end',
+        Client: 'Shahin LLC',
+        Total: '55',
+        Currency: 'EUR',
+        Contract: 'test 3',
+        Note: 'Lorem ipsum.',
+      },
+      {
+        No: '3',
+        Firm: 'Sara Logistics',
+        Department: 'Back-end',
+        Client: 'Jalal LLC',
+        Total: '12',
+        Currency: 'EUR',
+        Contract: 'test 4',
+        Note: 'Lorem ipsum.Lorem ipsum.',
+      },
+
+    ]);
+
+    this.secondDataSource = new MatTableDataSource<any>([
       {
         No: '1',
         Firm: 'Alliance',
@@ -696,7 +740,6 @@ export class TablesComponent implements OnInit {
         })
 
         dt.isSelect = isSlct
-
         this.modelColumns = this.columnsToDisplayWithExpand;
       })
     }
@@ -770,18 +813,34 @@ export class TablesComponent implements OnInit {
   }
 
   handleFilter() {
-    this.orderRequestData.filters = [];
-
+    this.orderRequestData.filters = []
     Object.keys(this.filterForm.controls).forEach((key: string) => {
       if (this.filterForm.get(key)?.value.length > 0) {
         this.orderRequestData.filters?.push({
-          key: key,
+          columnName: key,
           value: this.filterForm.get(key)?.value,
+          order: 0
         })
       }
     });
-    localStorage.setItem('filterData', JSON.stringify(this.orderRequestData.filters))
-    this.filterTable();
+
+    let dataArr: any = [];
+    // this.orderRequestData.filters.forEach((element: any, keyFilter: any) => {
+    //   // dataArr = this.secondInitialDataSource.data.filter((dt: any) => {
+    //   //   console.log(element.columnName)
+    //   //   // if (element.key == 'date') {
+    //   //   //   let dArr = element.value.split("-");
+    //   //   //   if (dt[element.key] == dArr[1] + "-" + dArr[2] + "-" + dArr[0]) return dt
+    //   //   // }
+    //   //   // else {
+    //   //   if (dt[element.columnName].toString().toLowerCase().includes(element.value.toLowerCase())) return dt
+    //   //   // }
+    //   // })
+    // });
+    dataArr = this.secondInitialDataSource.data.filter(o => this.orderRequestData.filters.every(({ columnName, value } : any) => o[columnName].toString().toLowerCase().includes(value.toString().toLowerCase())));
+    this.secondDataSource.data = dataArr;
+    this.secondDataSource.data = this.secondDataSource.data;
+    this.secondDataSource.paginator = this.commonPaginator;
   }
 
   handleKeyUp(e: any) {
@@ -955,51 +1014,17 @@ export class TablesComponent implements OnInit {
     Object.keys(this.filterFormExpandable.controls).forEach((key: string) => {
       if (this.filterFormExpandable.get(key)?.value.length > 0) {
         this.orderRequestDataExpandable.filters?.push({
-          key: key,
+          columnName: key,
           value: this.filterFormExpandable.get(key)?.value,
         })
       }
     });
 
-    localStorage.setItem('filterDataExpand', JSON.stringify(this.orderRequestDataExpandable.filters))
-
-    this.filterTableExpandable();
-
-  }
-
-  filterTableExpandable() {
-    let filters = JSON.parse(localStorage.getItem('filterDataExpand')!);
-    let dataArr: any[] = [];
-    filters.length ? filters = filters : filters = null;
-
-    if (filters) {
-      filters.forEach((element: any) => {
-        dataArr = this.initialDataSourceExpandable.data.filter((dt: any) => {
-
-          if (element.key == 'date') {
-            let dArr = element.value.split("-");
-            // let dArr2 = dt[element.key].split("-"); 
-            if (dt[element.key] == dArr[1] + "-" + dArr[2] + "-" + dArr[0]) return dt
-          }
-          else {
-            if (dt[element.key].toString().toLowerCase().includes(element.value.toLowerCase())) return dt
-          }
-
-        })
-      });
-
-      this.dataSourceExpandable = new MatTableDataSource<any>(dataArr);
-      this.dataSourceExpandable.data = this.dataSourceExpandable.data;
-      this.dataSourceExpandable.paginator = this.commonPaginator;
-
-      this.calculateTotalsExpandable();
-    }
-
-    else {
-      this.dataSourceExpandable = new MatTableDataSource<any>(this.initialDataSourceExpandable.data);
-      this.dataSourceExpandable.data = this.dataSourceExpandable.data;
-      this.dataSourceExpandable.paginator = this.commonPaginator;
-    }
+    let dataArr: any = [];
+    dataArr = this.initialDataSourceExpandable.data.filter(o => this.orderRequestDataExpandable.filters.every(({ columnName, value } : any) => o[columnName].toString().toLowerCase().includes(value.toString().toLowerCase())));
+    this.dataSourceExpandable.data = dataArr;
+    this.dataSourceExpandable.data = this.dataSourceExpandable.data;
+    this.dataSourceExpandable.paginator = this.commonPaginator;
   }
 
   handleKeyUpExpandable(e: any) {
@@ -1048,7 +1073,6 @@ export class TablesComponent implements OnInit {
   }
 
   downloadExcel(filename: string) {
-
     this.dataArray = JSON.parse(JSON.stringify(this.dataSourceExpandable.data))
     let res = this.initialColumnsToDisplayWithExpand.filter(item => !this.columnsToDisplayWithExpand.includes(item));
 
@@ -1136,7 +1160,7 @@ export class TablesComponent implements OnInit {
     // });
     // XLSX.writeFile(wb, `excel.xlsx`);
 
-    const ws: XLSX.WorkSheet=XLSX.utils.table_to_sheet(targetTableElm);//converts a DOM TABLE element to a worksheet
+    const ws: XLSX.WorkSheet = XLSX.utils.table_to_sheet(targetTableElm);//converts a DOM TABLE element to a worksheet
     const wb: XLSX.WorkBook = XLSX.utils.book_new();
     XLSX.utils.book_append_sheet(wb, ws, 'Sheet1');
 

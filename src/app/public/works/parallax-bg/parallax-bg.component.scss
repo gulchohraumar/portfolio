@@ -65,3 +65,29 @@
     transform: translate(-30%, -30%);
     border-radius: 50%;
   }
+
+  .parallax-bg-2{
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 100%;
+    z-index: 0;
+    // background: url(../../../../assets/parallax/foodbg-removebg-preview.png);
+    // background-repeat: no-repeat;
+    // background-size: cover;
+  }
+
+  .parallax-bg-2 .backgr{
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    z-index: 1;
+    position: absolute;
+    top: 0;
+    left: 0;
+  }
+
+  .parallax-bg-2 p{
+    z-index: 2;
+  }

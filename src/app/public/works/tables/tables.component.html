@@ -42,7 +42,7 @@
             </mat-paginator>
         </div>
     </div>
-
+ 
     <div class=" mt-4 py-2  mat-elevation-z8">
         <h2>Material table with searchable header. </h2>
         <form (keydown.enter)="$event.preventDefault()" [formGroup]="filterForm" style="padding: 0;">
@@ -475,8 +475,8 @@
             <div id="htmlData" class="line-container  mx-auto expandableTbale" style="margin: 0; padding: 0;">
                 <form (keydown.enter)="$event.preventDefault()" [formGroup]="filterFormExpandable" class=""
                     style="padding: 0 !important;">
-                    <table mat-table [dataSource]="dataSourceExpandable" multiTemplateDataRows matSort
-                        #empTbSortWithObjectExpandable="matSort">
+                    <table mat-table [dataSource]="dataSourceExpandable" multiTemplateDataRows 
+                      >
                         <ng-container matColumnDef="expand">
                             <th mat-header-cell *matHeaderCellDef aria-label="row actions"
                                 style="width: 100px !important;">
@@ -493,7 +493,7 @@
                                         <path
                                             d="M16 8A8 8 0 1 1 0 8a8 8 0 0 1 16 0zM8.5 4.5a.5.5 0 0 0-1 0v5.793L5.354 8.146a.5.5 0 1 0-.708.708l3 3a.5.5 0 0 0 .708 0l3-3a.5.5 0 0 0-.708-.708L8.5 10.293V4.5z" />
                                     </svg>
-                                </button>
+                                </button> 
                             </td>
                             <td mat-footer-cell *matFooterCellDef="let element; let k =index">
                                 TOTALS:
@@ -501,7 +501,7 @@
                         </ng-container>
 
                         <ng-container matColumnDef="{{column}}" *ngFor="let column of columnsToDisplayExpandable; let j = index">
-                            <th mat-header-cell *matHeaderCellDef mat-sort-header>
+                            <th mat-header-cell *matHeaderCellDef >
                                 <div class="field pe-0 mx-auto col-lg-12">
                                     <input *ngIf="column != 'date'" (keyup)="handleKeyUpExpandable($event)"
                                         [formControlName]="column" class="col-lg-7 mx-auto" type="text"
