@@ -79,11 +79,11 @@ export class WorksComponent implements OnInit {
       hiperLink: 'https://illustrious-dusk-629bac.netlify.app/'
     },
     {
-      url: '../../../assets/projects/trello.png',
+      url: '../../../assets/projects/denta.svg',
       color: '#4643d2',
-      title: 'Mini trello (Angular)',
+      title: 'Denta (Angular)',
       link: '',
-      hiperLink: 'https://sensational-maamoul-6416ce.netlify.app/main/task'
+      hiperLink: 'https://664ed87ad6604bb32be3af9e--chipper-salamander-bf3d53.netlify.app/'
     },
   ];
 

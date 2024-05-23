@@ -1007,7 +1007,6 @@ export class TablesComponent implements OnInit {
     }
   }
 
-
   handleFilterExpandable() {
     this.orderRequestDataExpandable.filters = [];
 
