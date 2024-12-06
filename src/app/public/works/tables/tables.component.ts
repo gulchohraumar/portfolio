@@ -7,13 +7,13 @@ import { MatTableDataSource } from '@angular/material/table';
 import html2canvas from 'html2canvas';
 import jsPDF from 'jspdf';
 import * as XLSX from "xlsx"
-
+import * as FileSaver from 'file-saver'
 
 interface PeriodicElement {
   name: string;
   position: number;
   weight: number;
-  symbol: string;
+  symbol: string; 
   description: string;
 }
 
@@ -237,6 +237,7 @@ export class TablesComponent implements OnInit {
 
   firstDataSource: MatTableDataSource<any> = new MatTableDataSource<any>([]);
   excelHeaders: MatTableDataSource<any> = new MatTableDataSource<any>([]);
+  @ViewChild('commonPagExcel') commonPagExcel!: MatPaginator;
   @ViewChild('firstPag') firstPaginator!: MatPaginator;
 
   displayedFirstDataColumns: string[] = [];
@@ -507,7 +508,9 @@ export class TablesComponent implements OnInit {
   pageSizeOptionsExpandable: number[] = [5, 10, 15, 20];
   @ViewChild('commonPagExpandable') commonPaginatorExpandable!: MatPaginator;
 
-
+  lengthHeader?: number;
+  pageSizeHeader!: number; 
+  pageSizeOptionsHeader: number[] = [5, 10, 15,20];
 
   ngOnInit() {
 
@@ -530,7 +533,205 @@ export class TablesComponent implements OnInit {
         checkoutDate: '2023-02-13',
         deliveryDate: '2024-03-23',
       },
+      {
+
+        orderNo: '2023-03223',
+        opNo: '2',
+        clientName: 'ABSHERON mmc',
+        transportationType: 'Vaqon',
+        wagonNo: '132323',
+        containerNo: '',
+        overhead: '2342423',
+        consignor: 'azerbaijan',
+        consignee: 'turkey',
+        checkoutDate: '2023-02-13',
+        deliveryDate: '2024-03-23',
+      },
+      {
+
+        orderNo: '2023-03223',
+        opNo: '2',
+        clientName: 'ABSHERON mmc',
+        transportationType: 'Vaqon',
+        wagonNo: '132323',
+        containerNo: '',
+        overhead: '2342423',
+        consignor: 'azerbaijan',
+        consignee: 'turkey',
+        checkoutDate: '2023-02-13',
+        deliveryDate: '2024-03-23',
+      },
+      {
+
+        orderNo: '2023-03223',
+        opNo: '2',
+        clientName: 'ABSHERON mmc',
+        transportationType: 'Vaqon',
+        wagonNo: '132323',
+        containerNo: '',
+        overhead: '2342423',
+        consignor: 'azerbaijan',
+        consignee: 'turkey',
+        checkoutDate: '2023-02-13',
+        deliveryDate: '2024-03-23',
+      },
+      {
+
+        orderNo: '2023-03223',
+        opNo: '2',
+        clientName: 'ABSHERON mmc',
+        transportationType: 'Vaqon',
+        wagonNo: '132323',
+        containerNo: '',
+        overhead: '2342423',
+        consignor: 'azerbaijan',
+        consignee: 'turkey',
+        checkoutDate: '2023-02-13',
+        deliveryDate: '2024-03-23',
+      },
+      {
+
+        orderNo: '2023-03223',
+        opNo: '2',
+        clientName: 'ABSHERON mmc',
+        transportationType: 'Vaqon',
+        wagonNo: '132323',
+        containerNo: '',
+        overhead: '2342423',
+        consignor: 'azerbaijan',
+        consignee: 'turkey',
+        checkoutDate: '2023-02-13',
+        deliveryDate: '2024-03-23',
+      },
+      {
+
+        orderNo: '2023-03223',
+        opNo: '2',
+        clientName: 'ABSHERON mmc',
+        transportationType: 'Vaqon',
+        wagonNo: '132323',
+        containerNo: '',
+        overhead: '2342423',
+        consignor: 'azerbaijan',
+        consignee: 'turkey',
+        checkoutDate: '2023-02-13',
+        deliveryDate: '2024-03-23',
+      },
+      {
+
+        orderNo: '2023-03223',
+        opNo: '2',
+        clientName: 'ABSHERON mmc',
+        transportationType: 'Vaqon',
+        wagonNo: '132323',
+        containerNo: '',
+        overhead: '2342423',
+        consignor: 'azerbaijan',
+        consignee: 'turkey',
+        checkoutDate: '2023-02-13',
+        deliveryDate: '2024-03-23',
+      },
+      {
+
+        orderNo: '2023-03223',
+        opNo: '2',
+        clientName: 'ABSHERON mmc',
+        transportationType: 'Vaqon',
+        wagonNo: '132323',
+        containerNo: '',
+        overhead: '2342423',
+        consignor: 'azerbaijan',
+        consignee: 'turkey',
+        checkoutDate: '2023-02-13',
+        deliveryDate: '2024-03-23',
+      },
+      {
+
+        orderNo: '2023-03223',
+        opNo: '2',
+        clientName: 'ABSHERON mmc',
+        transportationType: 'Vaqon',
+        wagonNo: '132323',
+        containerNo: '',
+        overhead: '2342423',
+        consignor: 'azerbaijan',
+        consignee: 'turkey',
+        checkoutDate: '2023-02-13',
+        deliveryDate: '2024-03-23',
+      },
+      {
+
+        orderNo: '2023-03223',
+        opNo: '2',
+        clientName: 'ABSHERON mmc',
+        transportationType: 'Vaqon',
+        wagonNo: '132323',
+        containerNo: '',
+        overhead: '2342423',
+        consignor: 'azerbaijan',
+        consignee: 'turkey',
+        checkoutDate: '2023-02-13',
+        deliveryDate: '2024-03-23',
+      },
+      {
+
+        orderNo: '2023-03223',
+        opNo: '2',
+        clientName: 'ABSHERON mmc',
+        transportationType: 'Vaqon',
+        wagonNo: '132323',
+        containerNo: '',
+        overhead: '2342423',
+        consignor: 'azerbaijan',
+        consignee: 'turkey',
+        checkoutDate: '2023-02-13',
+        deliveryDate: '2024-03-23',
+      },
+      {
+
+        orderNo: '2023-03223',
+        opNo: '2',
+        clientName: 'ABSHERON mmc',
+        transportationType: 'Vaqon',
+        wagonNo: '132323',
+        containerNo: '',
+        overhead: '2342423',
+        consignor: 'azerbaijan',
+        consignee: 'turkey',
+        checkoutDate: '2023-02-13',
+        deliveryDate: '2024-03-23',
+      },
+      {
+
+        orderNo: '2023-03223',
+        opNo: '2',
+        clientName: 'ABSHERON mmc',
+        transportationType: 'Vaqon',
+        wagonNo: '132323',
+        containerNo: '',
+        overhead: '2342423',
+        consignor: 'azerbaijan',
+        consignee: 'turkey',
+        checkoutDate: '2023-02-13',
+        deliveryDate: '2024-03-23',
+      },
+      {
+
+        orderNo: '2023-03223',
+        opNo: '2',
+        clientName: 'ABSHERON mmc',
+        transportationType: 'Vaqon',
+        wagonNo: '132323',
+        containerNo: '',
+        overhead: '2342423',
+        consignor: 'azerbaijan',
+        consignee: 'turkey',
+        checkoutDate: '2023-02-13',
+        deliveryDate: '2024-03-23',
+      },
     ])
+    this.lengthHeader = this.excelHeaders.data.length;
+    this.excelHeaders.paginator = this.commonPagExcel;
 
 
     this.firstDataSource = new MatTableDataSource<any>([
@@ -754,6 +955,7 @@ export class TablesComponent implements OnInit {
   ngAfterViewInit() {
     this.secondDataSource.paginator = this.commonPaginator;
     this.dataSourceExpandable.sort = this.sort;
+    this.excelHeaders.paginator = this.commonPagExcel;
   }
 
   // SECOND TABLE CODES
@@ -1071,7 +1273,7 @@ export class TablesComponent implements OnInit {
     });
   }
 
-  downloadExcel(filename: string) {
+  downloadExcel(filename: string) { 
     this.dataArray = JSON.parse(JSON.stringify(this.dataSourceExpandable.data))
     let res = this.initialColumnsToDisplayWithExpand.filter(item => !this.columnsToDisplayWithExpand.includes(item));
 
@@ -1154,6 +1356,7 @@ export class TablesComponent implements OnInit {
 
   exportTableToExcel(tableId: string, name?: any) {
     let targetTableElm = document.getElementById(tableId);
+    console.log(targetTableElm)
     // let wb = XLSX.utils.table_to_book(targetTableElm, <XLSX.Table2SheetOpts>{
     //   sheet: 'sheetName'
     // });
@@ -1161,12 +1364,43 @@ export class TablesComponent implements OnInit {
 
     const ws: XLSX.WorkSheet = XLSX.utils.table_to_sheet(targetTableElm);//converts a DOM TABLE element to a worksheet
     const wb: XLSX.WorkBook = XLSX.utils.book_new();
+
+    console.log(ws)
+    console.log(wb)
     XLSX.utils.book_append_sheet(wb, ws, 'Sheet1');
 
     XLSX.writeFile(wb, 'SheetJS.xlsx');
   }
 
+  exportToExcel(data: any[], headerKeyArray: string[], headerTranslateArray: string[], filename?: string) {
+    const filteredData = data.map(item => {
+      const filteredItem: any = {};
+      const obj: { [key: string]: string } = {};
+  
+      headerKeyArray.map((dt: any, key: any) => {
+        obj[`${dt}`] = headerTranslateArray[key];
+      })
+  
+      Object.keys(obj).forEach(columnKey => {
+        if (item.hasOwnProperty(columnKey)) {
+          const mappedColumnName = obj[columnKey];
+          if (mappedColumnName) {
+            filteredItem[mappedColumnName] = item[columnKey];
+          }
+        }
+      });
+      return filteredItem;
+    });
+  
+    const worksheet: XLSX.WorkSheet = XLSX.utils.json_to_sheet(filteredData);
+    const workbook: XLSX.WorkBook = { Sheets: { 'data': worksheet }, SheetNames: ['data'] };
+    const excelBuffer: any = XLSX.write(workbook, { bookType: 'xlsx', type: 'array' });
+    const blob: Blob = new Blob([excelBuffer], { type: 'application/vnd.openxmlformats-officedocument.spreadsheetml.sheet' });
+  
+    FileSaver.saveAs(blob, filename + '.xlsx'); 
+  }
+
   handleExportExcelWithHeader() {
-    this.exportTableToExcel('excelHeaderTable', 'Header excel')
+    this.exportToExcel(this.excelHeaders.data, this.displayedColumns.columns, this.displayedColumns.columnsTranslates, "Test excel")
   }
 }

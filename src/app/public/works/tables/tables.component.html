@@ -9,7 +9,7 @@
                     <input matInput (keyup)="applyFilter($event)" #input />
                 </mat-form-field>
             </div>
-
+ 
             <div class="mat-elevation-z8 line-container mt-2 mx-auto">
                 <table mat-table [dataSource]="firstDataSource">
                     <ng-container *ngFor="let column of displayedFirstColumns; let i = index" [matColumnDef]="column">
@@ -675,7 +675,7 @@
 
             </div>
 
-            <mat-paginator [pageSizeOptions]="[10, 20, 30]" showFirstLastButtons #firstPag
+            <mat-paginator [pageSizeOptions]="pageSizeOptionsHeader" [length]="lengthHeader" [pageSize]="pageSizeHeader" #commonPagExcel
                 aria-label="Select page of periodic elements">
             </mat-paginator>
         </div>
